@@ -1,0 +1,23 @@
+{
+  "name": "Adventures",
+  "version": "1.0.0",
+  "description": "A theme for a personal travel photography website for WordPress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "averyethomas <averyethomas@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-concat": "*",
+    "gulp-connect": "*",
+    "gulp-ftp": "*",
+    "gulp-imagemin": "*",
+    "gulp-pug": "*",
+    "gulp-sass": "*",
+    "gulp-util": "*",
+    "gulp-watch": "*",
+    "gulp-autoprefixer": "*"
+  }
+}
