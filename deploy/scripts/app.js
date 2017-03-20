@@ -77,7 +77,6 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', function ($scop
                 navigationControl: false,
                 mapTypeControl: false,
                 scaleControl: false,
-                draggable: false,
             };
 
             $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -129,9 +128,11 @@ app.controller('singlePostsCtrl', ['$scope', 'postsData', '$anchorScroll', '$loc
 
         $scope.singleLocations = [];
 
-        angular.forEach($scope.posts[0].acf.location, function(value){
+        angular.forEach($scope.posts[0].acf.locations, function(value){
             $scope.singleLocations.push(value);
         });
+        
+        console.log($scope.singleLocations)
 
         $scope.scrollTo = function(point){
             $location.hash(point);
@@ -316,8 +317,8 @@ app.controller('singlePostsCtrl', ['$scope', 'postsData', '$anchorScroll', '$loc
                 var marker = new google.maps.Marker({
                     map: $scope.map,
                     position: new google.maps.LatLng(info.lat, info.long),
-                    title: info.location_name,
-                    link: info.location_name.replace(/\s/g,''),
+                    title: info.name,
+                    link: info.name.replace(/\s/g,''),
                     icon: iconLoad
                 });
 

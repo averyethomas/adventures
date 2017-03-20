@@ -54,7 +54,8 @@ body {
     font-weight: 500;
     color: #a7dbd2;
     -webkit-transition: all 0.15s ease-in-out;
-    transition: all 0.15s ease-in-out; }
+    transition: all 0.15s ease-in-out;
+    text-decoration: none; }
     body a:hover {
       text-decoration: none;
       color: #f16262; }
@@ -223,7 +224,7 @@ body {
       @media all and (min-width: 768px) {
         body .home .map-section .map {
           margin: 0 0 40px;
-          height: 600px; } }
+          height: 60vh; } }
       body .home .map-section .map #map {
         width: 100%;
         height: 100%; }
@@ -232,7 +233,7 @@ body {
       overflow: hidden; }
       body .home .map-section .locations-grid .location-tile {
         box-sizing: border-box;
-        height: 200px;
+        height: 285px;
         width: 100%;
         margin: 0 0 10px;
         position: relative; }
@@ -259,196 +260,234 @@ body {
           color: #ffffff;
           background-color: rgba(125, 182, 171, 0.6);
           text-align: center;
-          height: 100%;
+          height: 85px;
           width: 100%;
           position: absolute;
-          top: 0;
+          bottom: 0;
           left: 0;
           z-index: 5;
-          display: none; }
+          display: table; }
           body .home .map-section .locations-grid .location-tile .location-hover a.location-info {
             display: table-cell;
             vertical-align: middle;
             padding: 0 10px;
             color: #ffffff;
             text-decoration: none; }
+          @media all and (min-width: 768px) {
+            body .home .map-section .locations-grid .location-tile .location-hover {
+              display: none;
+              height: 100%;
+              top: 0; } }
         body .home .map-section .locations-grid .location-tile .location-image {
           background: url("https://media1.britannica.com/eb-media/16/114516-004-68B637CA.jpg") no-repeat 50% 50%;
           background-size: cover;
           position: absolute;
-          height: 100%;
+          height: 200px;
           width: 100%; }
-  body .single {
-    padding: 0;
+          @media all and (min-width: 768px) {
+            body .home .map-section .locations-grid .location-tile .location-image {
+              height: 100%; } }
+  body .single .map {
+    height: 300px;
+    background-color: #aeaeae;
+    background-size: cover;
+    margin: 80px 0 10px;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out; }
+    body .single .map #map {
+      width: 100%;
+      height: 100%;
+      position: relative; }
+    body .single .map.mapClosed {
+      display: block; }
+    @media all and (min-width: 768px) {
+      body .single .map {
+        position: fixed;
+        height: 100vh;
+        width: 50%;
+        right: 0;
+        top: 0;
+        margin: 0; }
+        body .single .map.mapClosed {
+          width: 35px; } }
+  body .single .map-button {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #7db6ab;
+    border-radius: 50px;
+    z-index: 10;
+    position: fixed;
+    top: 80px;
+    right: calc(50% - 25px);
+    display: none;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    background: url() no-repeat 50% 50%;
+    background-color: #ffffff;
+    background-size: 30px 30px; }
+    @media all and (min-width: 768px) {
+      body .single .map-button {
+        display: block; } }
+    body .single .map-button.mapClosed {
+      right: 10px; }
+    body .single .map-button:hover {
+      border: 3px solid #f16262; }
+  body .single .content-container {
+    margin: 0 auto;
+    box-sizing: border-box;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    text-align: center; }
+    @media all and (min-width: 768px) {
+      body .single .content-container {
+        width: 50%;
+        margin: 0;
+        padding-top: 80px; }
+        body .single .content-container.mapClosed {
+          width: calc(100% - 35px);
+          margin: 0; } }
+    @media all and (min-width: 992px) {
+      body .single .content-container.mapClosed {
+        margin: 0 auto; } }
+    body .single .content-container .content {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
+      box-sizing: border-box; }
+      body .single .content-container .content img {
+        display: block;
+        width: 100%;
+        margin: 0 0 10px; }
+      body .single .content-container .content p {
+        margin: 0 0 25px; }
+      body .single .content-container .content .intro {
+        margin: 0 0 25px; }
+        body .single .content-container .content .intro h1 {
+          color: #7db6ab;
+          margin: 0; }
+        body .single .content-container .content .intro h2 {
+          color: #a7dbd2;
+          margin: 0 0 25px; }
+          body .single .content-container .content .intro h2 a {
+            font-size: 36px;
+            line-height: 40px; }
+        body .single .content-container .content .intro h4 {
+          color: #a7dbd2;
+          margin: 0 0 25px; }
+        body .single .content-container .content .intro .single {
+          padding: 0; }
+          @media all and (min-width: 768px) {
+            body .single .content-container .content .intro .single {
+              padding: 0 20px; } }
+          body .single .content-container .content .intro .single img {
+            width: 100%;
+            display: block;
+            padding: 0 5px; }
+        body .single .content-container .content .intro .double {
+          padding: 0; }
+          @media all and (min-width: 768px) {
+            body .single .content-container .content .intro .double {
+              padding: 0 20px; } }
+          body .single .content-container .content .intro .double img {
+            width: calc(50% - 10px);
+            display: inline-block;
+            padding: 0 5px; }
+      body .single .content-container .content .location {
+        margin: 0 0 25px; }
+        body .single .content-container .content .location h3 {
+          color: #7db6ab;
+          margin: 0 0 25px; }
+        body .single .content-container .content .location .single {
+          padding: 0; }
+          @media all and (min-width: 768px) {
+            body .single .content-container .content .location .single {
+              padding: 0 20px; } }
+          body .single .content-container .content .location .single img {
+            width: 100%;
+            display: block;
+            padding: 0 5px; }
+        body .single .content-container .content .location .double {
+          padding: 0; }
+          @media all and (min-width: 768px) {
+            body .single .content-container .content .location .double {
+              padding: 0 20px; } }
+          body .single .content-container .content .location .double img {
+            width: calc(50% - 10px);
+            display: inline-block;
+            padding: 0 5px; }
+      body .single .content-container .content h3 {
+        color: #7db6ab; }
+  body .single footer {
     background-color: #7db6ab;
     padding: 20px 10px;
     width: 100%;
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out; }
     @media all and (min-width: 768px) {
-      body .single {
-        padding: 0 20px; } }
-    body .single img {
-      width: 100%;
-      display: block;
-      padding: 0 5px; }
-    body .single .double {
-      padding: 0; }
-      @media all and (min-width: 768px) {
-        body .single .double {
-          padding: 0 20px; } }
-      body .single .double img {
-        width: 50%;
-        display: inline-block;
-        padding: 0 5px; }
-    body .single h3 {
-      color: #7db6ab; }
-    @media all and (min-width: 768px) {
-      body .single {
+      body .single footer {
         width: 50%; }
-        body .single ul li {
+        body .single footer ul li {
           display: block;
           border-right: none;
           padding: 0; }
-        body .single.mapClosed {
+        body .single footer.mapClosed {
           width: 100%; } }
-    body .single ul {
+    body .single footer ul {
       text-align: center; }
-      body .single ul li {
+      body .single footer ul li {
         display: block;
         margin: 0 0 10px;
         color: #ffffff; }
-        body .single ul li:last-of-type {
+        body .single footer ul li:last-of-type {
           margin: 0; }
         @media all and (min-width: 992px) {
-          body .single ul li {
+          body .single footer ul li {
             display: inline-block;
             padding: 0 10px;
             border-right: 2px solid white;
             margin: 0; }
-            body .single ul li:last-of-type {
+            body .single footer ul li:last-of-type {
               border: none; } }
-        body .single ul li a {
+        body .single footer ul li a {
           color: #ffffff;
           font-weight: 500; }
-          body .single ul li a:visited {
+          body .single footer ul li a:visited {
             color: #ffffff;
             text-decoration: none !important; }
-
-.category .hero-image {
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  height: 50vh;
-  position: relative; }
-  .category .hero-image h1 {
-    text-align: center;
-    color: #ffffff;
-    text-transform: uppercase;
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-    left: 0;
-    right: 0;
-    margin: 0 auto; }
-    @media all and (min-width: 992px) {
-      .category .hero-image h1 {
-        font-size: 125px;
-        line-height: 125px; } }
-
-.category .container .intro {
-  margin: 20px auto; }
-
-.category .map {
-  height: 300px;
-  background: url("https://i.stack.imgur.com/RdkOb.jpg") 50% 50% no-repeat;
-  background-size: cover;
-  margin: 0 0 10px; }
-  @media all and (min-width: 768px) {
-    .category .map {
-      margin: 0 0 20px;
-      height: 50vh; } }
-
-.category .locations-grid {
-  box-sizing: border-box;
-  overflow: hidden; }
-  .category .locations-grid .location-tile {
-    box-sizing: border-box;
-    height: 200px;
+  body footer {
+    background-color: #7db6ab;
+    padding: 20px 10px;
     width: 100%;
-    margin: 0 0 10px;
-    position: relative; }
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    box-sizing: border-box; }
     @media all and (min-width: 768px) {
-      .category .locations-grid .location-tile {
-        height: 225px;
-        width: calc(50% - 20px);
-        float: left;
-        position: relative;
-        margin: 0 10px 20px 10px; } }
-    @media all and (min-width: 992px) {
-      .category .locations-grid .location-tile {
-        width: calc(33.333% - 20px);
-        height: 275px; } }
-    .category .locations-grid .location-tile:hover > .location-hover {
-      display: table; }
-    .category .locations-grid .location-tile .location-hover {
-      color: #ffffff;
-      background-color: rgba(125, 182, 171, 0.6);
-      text-align: center;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 5;
-      display: none; }
-      .category .locations-grid .location-tile .location-hover a.location-info {
-        display: table-cell;
-        vertical-align: middle;
-        padding: 0 10px;
-        color: #ffffff;
-        text-decoration: none; }
-    .category .locations-grid .location-tile .location-image {
-      background: url("https://media1.britannica.com/eb-media/16/114516-004-68B637CA.jpg") no-repeat 50% 50%;
-      background-size: cover;
-      position: absolute;
-      height: 100%;
-      width: 100%; }
-
-footer {
-  background-color: #7db6ab;
-  padding: 20px 10px;
-  width: 100%;
-  -webkit-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
-  box-sizing: border-box; }
-  @media all and (min-width: 768px) {
-    footer {
-      width: 100%; }
-      footer ul li {
+      body footer {
+        width: 100%; }
+        body footer ul li {
+          display: block;
+          border-right: none;
+          padding: 0; } }
+    body footer ul {
+      text-align: center; }
+      body footer ul li {
         display: block;
-        border-right: none;
-        padding: 0; } }
-  footer ul {
-    text-align: center; }
-    footer ul li {
-      display: block;
-      margin: 0 0 10px;
-      color: #ffffff; }
-      footer ul li:last-of-type {
-        margin: 0; }
-      @media all and (min-width: 992px) {
-        footer ul li {
-          display: inline-block;
-          padding: 0 10px;
-          border-right: 2px solid white;
+        margin: 0 0 10px;
+        color: #ffffff; }
+        body footer ul li:last-of-type {
           margin: 0; }
-          footer ul li:last-of-type {
-            border: none; } }
-      footer ul li a {
-        color: #ffffff;
-        font-weight: 500; }
-        footer ul li a:visited {
+        @media all and (min-width: 992px) {
+          body footer ul li {
+            display: inline-block;
+            padding: 0 10px;
+            border-right: 2px solid white;
+            margin: 0; }
+            body footer ul li:last-of-type {
+              border: none; } }
+        body footer ul li a {
           color: #ffffff;
-          text-decoration: none !important; }
+          font-weight: 500;
+          text-decoration: none; }
+          body footer ul li a:visited {
+            color: #ffffff;
+            text-decoration: none !important; }

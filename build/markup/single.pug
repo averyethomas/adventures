@@ -1,0 +1,55 @@
+doctype html
+html
+    include includes/header.pug
+
+    body(ng-app="angularApp" ng-controller="mainCtrl")
+
+        div.mobile-nav
+            a(href="/index.html")
+                img(src="images/logo.png")
+            p(ng-click="showMenu = !showMenu") &#9776;
+
+        div.nav(ng-show="showMenu")
+            div.close
+                p(ng-click="showMenu = !showMenu") &#10006;
+            ul
+                li
+                    a(href="/index.html")
+                        img(src="images/logo.png")
+                li.home
+                    a(href="/index.html") HOME
+                li
+                    a(href="#") ABOUT
+                li
+                    a(href="#") CITIES
+        div.single(ng-controller="singlePostsCtrl")
+        
+            div.map-button(ng-click="closeMap();" ng-class="{'mapClosed': isMapClosed}")
+            
+            div.map(ng-class="{'mapClosed': isMapClosed}")
+                div#map
+                
+            div.content-container.container(ng-class="{'mapClosed': isMapClosed}")
+                div.content
+                    div.intro
+                        h1 {{posts[0].title.rendered}}
+                        h4 {{posts[0].date | date:'MMMM yyyy'}}
+                        p(ng-bind-html="posts[0].acf.intro_text | preserveHtml")
+                        
+                        div(ng-repeat="item in posts[0].acf.intro_images")
+                            div.single(ng-if="item.acf_fc_layout == 'single'")
+                                img(ng-src="{{item.image}}")
+                            div.double(ng-if="item.acf_fc_layout == 'double'")
+                                img(ng-src="{{item.image_left}}")
+                                img(ng-src="{{item.image_right}}")
+                    div.location(ng-repeat="location in posts[0].acf.locations track by $index" id="{{location.name | removeSpaces}}")
+                        h3 {{location.name}} {{location[i]}}
+                        p(ng-bind-html="location.text | preserveHtml")
+                        div(ng-repeat="item in location.images")
+                            div.single(ng-if="item.acf_fc_layout == 'single'")
+                                img(ng-src="{{item.image}}")
+                            div.double(ng-if="item.acf_fc_layout == 'double'")
+                                img(ng-src="{{item.image_left}}")
+                                img(ng-src="{{item.image_right}}")
+                                
+            include includes/footer.pug

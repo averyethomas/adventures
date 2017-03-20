@@ -5,7 +5,7 @@ html
     body(ng-app="angularApp" ng-controller="mainCtrl")
         div.mobile-nav
             a(href="/index.html")
-                img()
+                img(src="images/logo.png")
             p(ng-click="showMenu = !showMenu") &#9776;
         div.nav(ng-show="showMenu")
             div.close
@@ -13,16 +13,14 @@ html
             ul
                 li
                     a(href="/index.html")
-                        img()
+                        img(src="images/logo.png")
                 li.home
                     a(href="/index.html") HOME
                 li
                     a(href="#") ABOUT
                 li
                     a(href="#") CITIES
-                li
-                    a(href="#") COUNTRIES
-        
+               
         div.home
             div.hero-image
             div.about-row

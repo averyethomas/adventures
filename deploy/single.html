@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Adventures of Avery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--CSS-->
+    <link href="styles/styles.css" rel="stylesheet" type="text/css">
+  </head>
+  <body ng-app="angularApp" ng-controller="mainCtrl">
+    <div class="mobile-nav"><a href="/index.html"><img src="images/logo.png"></a>
+      <p ng-click="showMenu = !showMenu">&#9776;</p>
+    </div>
+    <div class="nav" ng-show="showMenu">
+      <div class="close">
+        <p ng-click="showMenu = !showMenu">&#10006;</p>
+      </div>
+      <ul>
+        <li><a href="/index.html"><img src="images/logo.png"></a></li>
+        <li class="home"><a href="/index.html">HOME</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">CITIES</a></li>
+      </ul>
+    </div>
+    <div class="single" ng-controller="singlePostsCtrl">
+      <div class="map-button" ng-click="closeMap();" ng-class="{'mapClosed': isMapClosed}"></div>
+      <div class="map" ng-class="{'mapClosed': isMapClosed}">
+        <div id="map"></div>
+      </div>
+      <div class="content-container container" ng-class="{'mapClosed': isMapClosed}">
+        <div class="content">
+          <div class="intro">
+            <h1>{{posts[0].title.rendered}}</h1>
+            <h4>{{posts[0].date | date:'MMMM yyyy'}}</h4>
+            <p ng-bind-html="posts[0].acf.intro_text | preserveHtml"></p>
+            <div ng-repeat="item in posts[0].acf.intro_images">
+              <div class="single" ng-if="item.acf_fc_layout == 'single'"><img ng-src="{{item.image}}"></div>
+              <div class="double" ng-if="item.acf_fc_layout == 'double'"><img ng-src="{{item.image_left}}"><img ng-src="{{item.image_right}}"></div>
+            </div>
+          </div>
+          <div class="location" ng-repeat="location in posts[0].acf.locations track by $index" id="{{location.name | removeSpaces}}">
+            <h3>{{location.name}} {{location[i]}}</h3>
+            <p ng-bind-html="location.text | preserveHtml"></p>
+            <div ng-repeat="item in location.images">
+              <div class="single" ng-if="item.acf_fc_layout == 'single'"><img ng-src="{{item.image}}"></div>
+              <div class="double" ng-if="item.acf_fc_layout == 'double'"><img ng-src="{{item.image_left}}"><img ng-src="{{item.image_right}}"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer ng-class="{'mapClosed': isMapClosed}">
+        <ul>
+          <li><a href="#">Disclaimer / Privacy</a></li>
+          <li>
+            <p>Theme By<a href="http://averyethomas.com" target="_blank"> Avery Thomas</a></p>
+          </li>
+          <li>
+            <p>&COPY;2017 AVERY THOMAS</p>
+          </li>
+        </ul>
+      </footer>
+      <!--JAVASCRIPT-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js" type="text/javascript"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular-resource.min.js?ver=1.0"></script>
+      <script src="scripts/app.js" type="text/javascript"></script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA91zkGx48lzfF7ZO4dr69VVTpVSWEhZJk&amp;callback">           </script>
+    </div>
+  </body>
+</html>
