@@ -3,6 +3,25 @@ html
     include includes/header.pug
     
     body
+        div.mobile-nav
+            a(href="/index.html")
+                img()
+            p &#9776;
+        div.nav
+            div.close
+                p &#10006;
+            ul
+                li
+                    a(href="/index.html")
+                        img()
+                li.home
+                    a(href="/index.html") HOME
+                li
+                    a(href="#") ABOUT
+                li
+                    a(href="#") CITIES
+                li
+                    a(href="#") COUNTRIES
         h1 Test
         
         include includes/footer.pug    
