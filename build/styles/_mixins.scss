@@ -1,0 +1,12 @@
+//Mixin to generate media queries
+@mixin responsive($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media all and #{map-get($breakpoints, $breakpoint)} {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "No value could be retrieved from the media query map, please make sure it is defined.";
+  }
+}

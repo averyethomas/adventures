@@ -1,0 +1,364 @@
+@import "base";
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,500,700');
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+//COLORS
+$dark-teal: #7db6ab;
+$light-teal: #a7dbd2;
+$salmon: #f16262;
+$gray: #9c9b9b;
+$white: #ffffff;
+
+//Page styles
+
+body {
+  font-family: 'Roboto', sans-serif;
+  a {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    color: $light-teal;
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+      text-decoration: none;
+      color: $salmon;
+    }
+  }
+  p {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 300;
+  }
+  h1 {
+    font-size: 50px;
+    line-height: 56px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: 500;
+  }
+  h3 {
+    font-size: 26px;
+    font-weight: 500;
+  }
+  h4 {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+  }
+  .container {
+    padding: 0 10px;
+    width: 100%;
+    max-width: 1400px;
+
+    @include responsive (tablet){
+      padding: 0 30px;
+    }
+  }
+  .mobile-nav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    z-index: 10;
+    margin: 15px 15px 10px;
+    width: calc(100% - 30px);
+
+    a{
+      float: left;
+      img {
+        width: 50px;
+      }
+    }
+    p{
+      font-size: 30px;
+      font-weight: 700;
+      padding-top: 15px;
+      color: $light-teal;
+      height: auto;
+      float: right;
+    }
+
+    @include responsive(tablet){
+      display: none;
+    }
+  }
+  .nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(167, 219, 210, 0.9);
+    margin: 0;
+    z-index: 100;
+    padding: 30px 15px;
+
+    &.ng-hide{
+      display: none;
+    }
+
+    @include responsive(tablet){
+      display: block;
+      position: absolute;
+      margin: 15px 15px 10px;
+      z-index: 10;
+      background-color: transparent;
+      padding: 0;
+      width: auto;
+      height: auto;
+
+      &.ng-hide{
+        display: block!important;
+      }
+    }
+    .close{
+      opacity: 1;
+      text-shadow: none;
+
+      @include responsive(tablet){
+        display: none;
+      }
+      p{
+        font-size: 26px;
+        color: #fff;
+      }
+    }
+    ul{
+      li{
+        display: block;
+        margin: 40px auto 20px;
+        text-align: center;
+
+        &:first-of-type{
+          display: none;
+        }
+
+        @include responsive(tablet){
+          margin: 0 15px 0 0;
+          display: inline-block;
+          vertical-align: middle;
+
+          &:first-of-type{
+            display: inline-block;
+          }
+
+          &.home{
+            display: none;
+          }
+        }
+        img{
+          width: 50px;
+        }
+        a{
+          font-size: 36px;
+          color: white;
+
+          @include responsive(tablet){
+            color: $light-teal;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+  .home {
+    position: relative;
+
+    .hero-image {
+      background: url('https://scontent.cdninstagram.com/t51.2885-15/e35/15803064_1881418992087980_7952632226334638080_n.jpg?ig_cache_key=MTQxOTkwNjQ3MjkyNjQzMTU4Nw%3D%3D.2') no-repeat 50% 50%;
+      height: 100vh;
+      background-size: cover;
+    }
+    .about-row {
+      padding: 0;
+      box-sizing: border-box;
+
+      @include responsive (tablet) {
+        height: 365px;
+        display: flex;
+      }
+
+      .about-info {
+        padding: 20px 10px;
+
+        @include responsive(tablet) {
+          display: inline-block;
+          width: 50%;
+          float: right;
+          padding: 25px;
+          order: 2;
+          align-self: center;
+        }
+        h1 {
+          text-transform: uppercase;
+          color: $dark-teal;
+        }
+        p {
+          color: $dark-teal;
+        }
+      }
+
+      .about-image {
+        height: 300px;
+        background: url('https://scontent.cdninstagram.com/t51.2885-15/e35/15101527_1693024027674449_3970649762813706240_n.jpg?ig_cache_key=MTM4MzQ3Mzc0MzA5MTYyMTUzNw%3D%3D.2') 50% 50% no-repeat;
+        background-size: cover;
+
+        @include responsive (tablet) {
+          display: inline-block;
+          width: 50%;
+          height: 100%;
+        }
+      }
+    }
+
+    .map-section {
+      .title {
+        background-color: $dark-teal;
+        padding: 10px;
+
+        h1 {
+          text-align: center;
+          text-transform: uppercase;
+          color: $white;
+          margin: 20px 0;
+        }
+      }
+      .map {
+        height: 300px;
+        background: url('https://i.stack.imgur.com/RdkOb.jpg') 50% 50% no-repeat;
+        background-size: cover;
+        margin: 0 0 10px;
+
+        @include responsive (tablet) {
+          margin: 0 0 40px;
+          height: 600px;
+        }
+
+        #map{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .locations-grid {
+        box-sizing: border-box;
+        overflow: hidden;
+
+        .location-tile {
+          box-sizing: border-box;
+          height: 200px;
+          width: 100%;
+          margin: 0 0 10px;
+          position: relative;
+
+          @include responsive(tablet) {
+            height: 225px;
+            width: calc(50% - 20px);
+            float: left;
+            position: relative;
+            margin: 0 10px 20px 10px;
+
+            &:first-of-type {
+              width: calc(50% - 20px);
+              height: 470px;
+            }
+            &:nth-of-type(2) {
+              width: calc(50% - 20px);
+            }
+            &:nth-of-type(3) {
+              width: calc(50% - 20px);
+            }
+          }
+
+          @include responsive (desktop) {
+            width: calc(25% - 20px);
+          }
+
+          &:hover > .location-hover {
+            display: table;
+          }
+
+          .location-hover {
+            color: $white;
+            background-color: rgba(125, 182, 171, 0.6);
+            text-align: center;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            display: none;
+
+            a.location-info {
+              display: table-cell;
+              vertical-align: middle;
+              padding: 0 10px;
+              color: $white;
+              text-decoration: none;
+            }
+          }
+
+          .location-image {
+            background: url('https://media1.britannica.com/eb-media/16/114516-004-68B637CA.jpg') no-repeat 50% 50%;
+            background-size: cover;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+//Breakpoints for responsive
+$breakpoints: (
+        tablet: '(min-width: 768px)',
+        desktop: '(min-width: 992px)',
+        large: '(min-width: 1200px)',
+        xlarge: '(min-width: 1600px)'
+);
