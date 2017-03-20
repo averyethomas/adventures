@@ -12,13 +12,13 @@
     <script src="scripts/app.js" type="text/javascript"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf9p9YdrLIZcheRjQx-sTPlhMEPNE2F5w&amp;callback=initMap"></script>
   </head>
-  <body>
+  <body ng-app="angularApp" ng-controller="mainCtrl">
     <div class="mobile-nav"><a href="/index.html"><img></a>
-      <p>&#9776;</p>
+      <p ng-click="showMenu = !showMenu">&#9776;</p>
     </div>
-    <div class="nav">
+    <div class="nav" ng-show="showMenu">
       <div class="close">
-        <p>&#10006;</p>
+        <p ng-click="showMenu = !showMenu">&#10006;</p>
       </div>
       <ul>
         <li><a href="/index.html"><img></a></li>
