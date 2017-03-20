@@ -16,7 +16,7 @@ app.factory('postsData', ['$http', function ($http) {
     return {
         async: function () {
             if (!promise) {
-                promise = $http.get('http://averyethomas.com/photosite/wp-json/wp/v2/posts?per_page=100').then(function (response) {
+                promise = $http.get('http://adventures.averyethomas.com/wp-json/wp/v2/posts?per_page=100').then(function (response) {
                     return response.data;
                 });
             }
@@ -35,12 +35,14 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', function ($scop
     postsData.async().then(function (d) {
 
         $scope.posts = d;
-
+        
         $scope.locations = [];
 
         angular.forEach($scope.posts, function(value){
             $scope.locations.push(value.acf);
         });
+        
+        console.log($scope.locations);
 
         $scope.initMap = function() {
 
@@ -60,7 +62,6 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', function ($scop
             var iconHover = { url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(iconOnHover) }
 
             var icon = {
-
                 path: "M-20,0a20,20 0 1,0 40,0a20,20 0 1,0 -40,0",
                 fillColor: '#f16262',
                 fillOpacity: 1,
@@ -72,25 +73,29 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', function ($scop
             var mapOptions = {
                 zoom: 3,
                 center: new google.maps.LatLng(38.3078, -56.7505),
-                mapTypeId: google.maps.MapTypeId.TERRAIN
+                mapTypeId: google.maps.MapTypeId.R,
+                navigationControl: false,
+                mapTypeControl: false,
+                scaleControl: false,
+                draggable: false,
             };
 
             $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
             $scope.markers = [];
 
-            var createMarker = function (info){
+            var createMarker = function(info){
 
                 var marker = new google.maps.Marker({
                     map: $scope.map,
                     position: new google.maps.LatLng(info.lat, info.long),
-                    title: info.city,
+                    title: info.intro,
                     icon: iconLoad,
                 });
 
-                $scope.markers.push(marker);
+                $scope.markers.push(icon);
 
-                marker.addListener('mouseover',function(){
+               marker.addListener('mouseover',function(){
 
                     marker.setIcon(iconHover);
 
@@ -349,7 +354,6 @@ app.controller('singlePostsCtrl', ['$scope', 'postsData', '$anchorScroll', '$loc
         console.log($scope.posts);
     });
 }]);
-
 app.filter('preserveHtml', function($sce) {
     return function(val) {
         return $sce.trustAsHtml(val);

@@ -361,4 +361,236 @@ body {
       }
     }
   }
-}
+  .single{
+    padding: 0;
+    @include responsive(tablet){
+        padding: 0 20px;
+    }
+    
+    img{
+        width: 100%;
+        display: block;
+        padding: 0 5px;
+    }
+    .double{
+        padding: 0;
+        @include responsive(tablet){
+            padding: 0 20px;
+        }
+        img{
+            width: 50%;
+            display: inline-block;
+            padding: 0 5px;
+        }
+    }
+    h3 {
+        color: $dark-teal;
+    }
+     footer {
+  }
+
+   
+        background-color: $dark-teal;
+        padding: 20px 10px;width: 100%;
+        transition: all 0.2s ease-out;
+        @include responsive(tablet) {
+            width: 50%;
+            ul {
+                li {
+                    display: block;
+                    border-right: none;
+                    padding: 0;
+                    }
+                }
+            &.mapClosed {
+              width: 100%;
+            }
+        }
+        ul{
+            text-align: center;
+            li {
+                display: block;
+                margin: 0 0 10px;
+                color: $white;
+                
+                &:last-of-type {
+                    margin: 0;
+                }
+                    
+                @include responsive (desktop) {
+                    display: inline-block;
+                    padding: 0 10px;
+                    border-right: 2px solid white;
+                    margin: 0;
+                    
+                    &:last-of-type {
+                        border: none;
+                    }
+                }
+
+          a {
+            color: $white;
+            font-weight: 500;
+
+            &:visited {
+              color: $white;
+              text-decoration: none !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  .category{
+    .hero-image{
+      background-size: cover;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      height: 50vh;
+      position: relative;
+
+      h1{
+        text-align: center;
+        color: $white;
+        text-transform: uppercase;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+
+        @include responsive(desktop){
+          font-size: 125px;
+          line-height: 125px;
+        }
+      }
+    }
+    .container{
+      .intro{
+        margin: 20px auto;
+      }
+    }
+    .map{
+      height: 300px;
+      background: url('https://i.stack.imgur.com/RdkOb.jpg') 50% 50% no-repeat;
+      background-size: cover;
+      margin: 0 0 10px;
+
+      @include responsive (tablet) {
+        margin: 0 0 20px;
+        height: 50vh;
+      }
+    }
+    .locations-grid {
+      box-sizing: border-box;
+      overflow: hidden;
+
+      .location-tile {
+        box-sizing: border-box;
+        height: 200px;
+        width: 100%;
+        margin: 0 0 10px;
+        position: relative;
+
+        @include responsive(tablet) {
+          height: 225px;
+          width: calc(50% - 20px);
+          float: left;
+          position: relative;
+          margin: 0 10px 20px 10px;
+        }
+
+        @include responsive (desktop) {
+          width: calc(33.333% - 20px);
+          height: 275px;
+        }
+
+        &:hover > .location-hover {
+          display: table;
+        }
+
+        .location-hover {
+          color: $white;
+          background-color: rgba(125, 182, 171, 0.6);
+          text-align: center;
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 5;
+          display: none;
+
+          a.location-info {
+            display: table-cell;
+            vertical-align: middle;
+            padding: 0 10px;
+            color: $white;
+            text-decoration: none;
+          }
+        }
+
+        .location-image {
+          background: url('https://media1.britannica.com/eb-media/16/114516-004-68B637CA.jpg') no-repeat 50% 50%;
+          background-size: cover;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  footer {
+    background-color: $dark-teal;
+    padding: 20px 10px;
+    width: 100%;
+    transition: all 0.2s ease-out;
+    box-sizing: border-box;
+
+    @include responsive(tablet) {
+      width: 100%;
+      ul {
+        li {
+          display: block;
+          border-right: none;
+          padding: 0;
+        }
+      }
+    }
+
+    ul {
+      text-align: center;
+      li {
+        display: block;
+        margin: 0 0 10px;
+        color: $white;
+
+        &:last-of-type {
+          margin: 0;
+        }
+
+        @include responsive (desktop) {
+          display: inline-block;
+          padding: 0 10px;
+          border-right: 2px solid white;
+          margin: 0;
+
+          &:last-of-type {
+            border: none;
+          }
+        }
+
+        a {
+          color: $white;
+          font-weight: 500;
+
+          &:visited {
+            color: $white;
+            text-decoration: none !important;
+          }
+        }
+      }
+    }
+  }
