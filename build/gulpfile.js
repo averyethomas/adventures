@@ -16,6 +16,7 @@ var gulp =      require('gulp'),
     autoprefixer = require('gulp-autoprefixer');
 
 var folder = 'deploy';
+var themeFolder = 'adventure-theme';
 
 //I want to:
 
@@ -35,12 +36,14 @@ gulp.task('styles', function(){
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer())
         .pipe(gulp.dest('../' + folder + '/styles/'))
+        .pipe(gulp.dest('../' + themeFolder + '/styles/'))
         .pipe(connect.reload());
 });
 
 gulp.task('scripts', function(){
     return gulp.src('scripts/**/*.js')
         .pipe(gulp.dest('../' + folder + '/scripts/'))
+        .pipe(gulp.dest('../' + themeFolder + '/scripts/'))
         .pipe(connect.reload());
 });
 
@@ -48,6 +51,7 @@ gulp.task('images', function(){
     return gulp.src('images/**/*.{jpg,jpeg,png,gif}')
         .pipe(gmin())
         .pipe(gulp.dest('../' + folder + '/images/'))
+        .pipe(gulp.dest('../' + themeFolder + '/images/'))
         .pipe(connect.reload());
 });
 
