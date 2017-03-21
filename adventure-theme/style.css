@@ -179,7 +179,7 @@ body {
   body .home {
     position: relative; }
     body .home .hero-image {
-      background: url("https://scontent.cdninstagram.com/t51.2885-15/e35/15803064_1881418992087980_7952632226334638080_n.jpg?ig_cache_key=MTQxOTkwNjQ3MjkyNjQzMTU4Nw%3D%3D.2") no-repeat 50% 50%;
+      background: no-repeat 50% 50%;
       height: 100vh;
       background-size: cover; }
     body .home .about-row {
@@ -241,7 +241,8 @@ body {
         height: 100%; }
     body .home .map-section .locations-grid {
       box-sizing: border-box;
-      overflow: hidden; }
+      overflow: hidden;
+      margin: 0 auto; }
       body .home .map-section .locations-grid .location-tile {
         box-sizing: border-box;
         height: 285px;
@@ -333,7 +334,7 @@ body {
     display: none;
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
-    background: url("../images/map_open.png") no-repeat 50% 50%;
+    background: url("/images/map_open.png") no-repeat 50% 50%;
     background-color: #ffffff;
     background-size: 30px 30px; }
     @media all and (min-width: 768px) {

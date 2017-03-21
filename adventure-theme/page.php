@@ -1,12 +1,12 @@
 <?php
     /*
-     *Template Name: 404 Page
+     *Template Name: Single Page
      *
      */
     
     get_header();
 ?>
 
-<h1>404</h1>
+<h1>A PAGE</h1>
 
 <?php get_footer(); ?>

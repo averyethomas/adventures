@@ -232,7 +232,7 @@ body {
     position: relative;
 
     .hero-image {
-      background: url('https://scontent.cdninstagram.com/t51.2885-15/e35/15803064_1881418992087980_7952632226334638080_n.jpg?ig_cache_key=MTQxOTkwNjQ3MjkyNjQzMTU4Nw%3D%3D.2') no-repeat 50% 50%;
+      background: no-repeat 50% 50%;
       height: 100vh;
       background-size: cover;
     }
@@ -309,6 +309,7 @@ body {
       .locations-grid {
         box-sizing: border-box;
         overflow: hidden;
+        margin: 0 auto;
 
         .location-tile {
           box-sizing: border-box;
@@ -430,7 +431,7 @@ body {
         right: calc(50% - 25px);
         display: none;
         transition: all 0.2s ease-out;
-        background: url('../images/map_open.png') no-repeat 50% 50%;
+        background: url('/images/map_open.png') no-repeat 50% 50%;
         background-color: $white;
         background-size: 30px 30px;
         
