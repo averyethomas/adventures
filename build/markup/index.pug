@@ -17,13 +17,13 @@ html
                 li.home
                     a(href="/index.html") HOME
                 li
-                    a(href="#") ABOUT
+                    a(href="/index.html##about") ABOUT
                 li
-                    a(href="#") CITIES
+                    a(href="/index.html##locations") LOCATIONS
                
         div.home
             div.hero-image
-            div.about-row
+            div.about-row#about
                 div.about-info
                     h1 Hello.
                     p Lorem ipsum dolor sit amet, consectetur adipsicing elit. Phal non risus no metus blah blah blah.
@@ -33,9 +33,9 @@ html
                     h1 Where I've Been
                 div.map(ng-init="initMap();")
                     div#map
-                div.locations-grid.container
+                div.locations-grid.container#locations
                     ul
-                        li.location-tile(ng-repeat="post in posts")
+                        li.location-tile(ng-repeat="post in posts" id="{{post.acf.title | removeSpaces}}")
                             div.location-hover
                                 a.location-info(href="/single.html")
                                     h2 {{post.title.rendered}}

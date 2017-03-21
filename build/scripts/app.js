@@ -25,7 +25,7 @@ app.factory('postsData', ['$http', function ($http) {
     }
 }]);
 
-app.controller('postsCtrl', ['$scope', 'postsData', '$interval', function ($scope, postsData, $interval) {
+app.controller('postsCtrl', ['$scope', 'postsData', '$interval', '$anchorScroll', '$location', function ($scope, postsData, $interval, $anchorScroll, $location) {
 
     $scope.isMapClosed = false;
     $scope.closeMap = function () {
@@ -42,13 +42,16 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', function ($scop
             $scope.locations.push(value.acf);
         });
         
-        console.log($scope.locations);
-
+        $scope.scrollTo = function(point){
+            $location.hash(point);
+            $anchorScroll();
+        }
+        
         $scope.initMap = function() {
 
             var template = [
                 '<?xml version="1.0"?>',
-                '<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.55 111.04" width="30">',
+                '<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.55 111.04" width="25">',
                 '<path d="M381.65,55.59A23.65,23.65,0,0,1,405.3,31.94c0-6.22,0-11.71,0-16a38,38,0,0,0-35.43,23.37h0a41.44,41.44,0,0,0,3.45,39.06L405.25,127s0-22.29,0-47.73A23.65,23.65,0,0,1,381.65,55.59Z" transform="translate(-366.52 -15.92)" style="fill: {{ color1 }}"/>',
                 ' <path d="M405.3,31.94h0a23.65,23.65,0,0,0,0,47.29h0" transform="translate(-366.52 -15.92)" style="fill:#fff"/>',
                 '<path d="M440.73,39.29h0A38,38,0,0,0,405.3,15.92c0,4.31,0,9.8,0,16a23.65,23.65,0,1,1,0,47.29c0,25.44,0,47.73,0,47.73l32-48.62A41.44,41.44,0,0,0,440.73,39.29Z" transform="translate(-366.52 -15.92)" style="fill: {{ color2 }}"/>',
@@ -61,15 +64,6 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', function ($scop
             var iconLoad = { url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(iconOnLoad) }
             var iconHover = { url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(iconOnHover) }
 
-            var icon = {
-                path: "M-20,0a20,20 0 1,0 40,0a20,20 0 1,0 -40,0",
-                fillColor: '#f16262',
-                fillOpacity: 1,
-                anchor: new google.maps.Point(0,0),
-                strokeWeight: 0,
-                scale: 0.5,
-            }
-
             var mapOptions = {
                 zoom: 3,
                 center: new google.maps.LatLng(38.3078, -56.7505),
@@ -77,6 +71,150 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', function ($scop
                 navigationControl: false,
                 mapTypeControl: false,
                 scaleControl: false,
+                styles: [
+                    {
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape.man_made",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "color": "#e1e1e1"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape.man_made",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape.natural",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "color": "#f2f2f2"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape.natural.landcover",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape.natural.terrain",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape.natural.terrain",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.business",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.park",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "color": "#d8ecb9"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.park",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "color": "#ffffff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "color": "#ffffff"
+                            },
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.local",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "color": "#b7cadd"
+                            }
+                        ]
+                    }
+                ]
             };
 
             $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -88,15 +226,28 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', function ($scop
                 var marker = new google.maps.Marker({
                     map: $scope.map,
                     position: new google.maps.LatLng(info.lat, info.long),
-                    title: info.intro,
                     icon: iconLoad,
+                    title: info.title,
+                    link: info.title.replace(/\s/g,''),
                 });
 
-                $scope.markers.push(icon);
+                $scope.markers.push(marker);
+                
+                marker.addListener('click', function(){
+                    console.log(marker.link);
+                    $scope.scrollTo(marker.link);
+                    document.getElementById(marker.link).style.border = '3px solid #f16262';
+                    document.getElementById(marker.link).getElementsByClassName('location-hover')[0].style.display = 'table';
+
+
+                });
 
                marker.addListener('mouseover',function(){
 
                     marker.setIcon(iconHover);
+                    document.getElementById(marker.link).getElementsByClassName('location-hover')[0].style.display = 'table';
+
+
 
                 });
                 marker.addListener('mouseout',function(){
@@ -132,8 +283,6 @@ app.controller('singlePostsCtrl', ['$scope', 'postsData', '$anchorScroll', '$loc
             $scope.singleLocations.push(value);
         });
         
-        console.log($scope.singleLocations)
-
         $scope.scrollTo = function(point){
             $location.hash(point);
             $anchorScroll();
@@ -143,7 +292,7 @@ app.controller('singlePostsCtrl', ['$scope', 'postsData', '$anchorScroll', '$loc
 
             var template = [
                 '<?xml version="1.0"?>',
-                '<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.55 111.04" width="30">',
+                '<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.55 111.04" width="25">',
                 '<path d="M381.65,55.59A23.65,23.65,0,0,1,405.3,31.94c0-6.22,0-11.71,0-16a38,38,0,0,0-35.43,23.37h0a41.44,41.44,0,0,0,3.45,39.06L405.25,127s0-22.29,0-47.73A23.65,23.65,0,0,1,381.65,55.59Z" transform="translate(-366.52 -15.92)" style="fill: {{ color1 }}"/>',
                 ' <path d="M405.3,31.94h0a23.65,23.65,0,0,0,0,47.29h0" transform="translate(-366.52 -15.92)" style="fill:#fff"/>',
                 '<path d="M440.73,39.29h0A38,38,0,0,0,405.3,15.92c0,4.31,0,9.8,0,16a23.65,23.65,0,1,1,0,47.29c0,25.44,0,47.73,0,47.73l32-48.62A41.44,41.44,0,0,0,440.73,39.29Z" transform="translate(-366.52 -15.92)" style="fill: {{ color2 }}"/>',
@@ -325,7 +474,6 @@ app.controller('singlePostsCtrl', ['$scope', 'postsData', '$anchorScroll', '$loc
                 $scope.markers.push(marker);
 
                 marker.addListener('click', function(){
-                    console.log(marker.link);
                     $scope.scrollTo(marker.link);
                 });
                 marker.addListener('mouseover',function(){
@@ -338,8 +486,6 @@ app.controller('singlePostsCtrl', ['$scope', 'postsData', '$anchorScroll', '$loc
 
                     marker.setIcon(iconLoad);
                     document.getElementById(marker.link).getElementsByTagName("H3")[0].style.color = darkColor;
-
-
                 });
 
             };
@@ -355,6 +501,19 @@ app.controller('singlePostsCtrl', ['$scope', 'postsData', '$anchorScroll', '$loc
         console.log($scope.posts);
     });
 }]);
+
+//app.controller('singlePageCtrl', ['$scope', '$http', 'apiCall', function($scope, $http, apiCall){
+//    var pageID = '';
+//    
+//    $scope.init = function(data){
+//        pageID = data;
+//        
+//        $http.get(apiCall + 'pages/' + pageID).then(function(response){
+//            $scope.pageData = response.data;
+//        })
+//    }
+//}])
+
 app.filter('preserveHtml', function($sce) {
     return function(val) {
         return $sce.trustAsHtml(val);

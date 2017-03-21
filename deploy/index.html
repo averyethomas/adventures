@@ -17,13 +17,13 @@
       <ul>
         <li><a href="/index.html"><img src="images/logo.png"></a></li>
         <li class="home"><a href="/index.html">HOME</a></li>
-        <li><a href="#">ABOUT</a></li>
-        <li><a href="#">CITIES</a></li>
+        <li><a href="/index.html##about">ABOUT</a></li>
+        <li><a href="/index.html##locations">LOCATIONS</a></li>
       </ul>
     </div>
     <div class="home">
       <div class="hero-image"></div>
-      <div class="about-row">
+      <div class="about-row" id="about">
         <div class="about-info">
           <h1>Hello.</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipsicing elit. Phal non risus no metus blah blah blah.</p>
@@ -37,9 +37,9 @@
         <div class="map" ng-init="initMap();">
           <div id="map"></div>
         </div>
-        <div class="locations-grid container">
+        <div class="locations-grid container" id="locations">
           <ul>
-            <li class="location-tile" ng-repeat="post in posts">
+            <li class="location-tile" ng-repeat="post in posts" id="{{post.acf.title | removeSpaces}}">
               <div class="location-hover"><a class="location-info" href="/single.html">
                   <h2>{{post.title.rendered}}</h2>
                   <h4>{{post.date | date:'MMMM yyyy'}}</h4></a></div>
