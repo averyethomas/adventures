@@ -87,6 +87,7 @@ body {
     font-size: 16px;
     line-height: 20px;
     font-weight: 300;
+    margin-bottom: 15px;
   }
   h1 {
     font-size: 50px;
@@ -313,7 +314,7 @@ body {
 
         .location-tile {
           box-sizing: border-box;
-          height: 285px;
+          height: 291px;
           width: 100%;
           margin: 0 0 10px;
           position: relative;
@@ -324,6 +325,7 @@ body {
             float: left;
             position: relative;
             margin: 0 10px 20px 10px;
+            border: 3px solid #ffffff;
 
             &:first-of-type {
               width: calc(50% - 20px);
@@ -542,7 +544,7 @@ body {
               padding: 0 20px;
             }
             img{
-              width: 100%;
+              width: calc(100% - 10px);
               display: block;
               padding: 0 5px;
             }
@@ -617,6 +619,9 @@ body {
               color: $white;
               text-decoration: none !important;
             }
+          }
+          p{
+            margin-bottom: 0;
           }
         }
       }

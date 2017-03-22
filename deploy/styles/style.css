@@ -71,7 +71,8 @@ body {
   body p {
     font-size: 16px;
     line-height: 20px;
-    font-weight: 300; }
+    font-weight: 300;
+    margin-bottom: 15px; }
   body h1 {
     font-size: 50px;
     line-height: 56px;
@@ -245,7 +246,7 @@ body {
       margin: 0 auto; }
       body .home .map-section .locations-grid .location-tile {
         box-sizing: border-box;
-        height: 285px;
+        height: 291px;
         width: 100%;
         margin: 0 0 10px;
         position: relative; }
@@ -255,7 +256,8 @@ body {
             width: calc(50% - 20px);
             float: left;
             position: relative;
-            margin: 0 10px 20px 10px; }
+            margin: 0 10px 20px 10px;
+            border: 3px solid #ffffff; }
             body .home .map-section .locations-grid .location-tile:first-of-type {
               width: calc(50% - 20px);
               height: 470px; }
@@ -415,7 +417,7 @@ body {
             body .single .content-container .content .location .single {
               padding: 0 20px; } }
           body .single .content-container .content .location .single img {
-            width: 100%;
+            width: calc(100% - 10px);
             display: block;
             padding: 0 5px; }
         body .single .content-container .content .location .double {
@@ -466,6 +468,8 @@ body {
           body .single footer ul li a:visited {
             color: #ffffff;
             text-decoration: none !important; }
+        body .single footer ul li p {
+          margin-bottom: 0; }
   body footer {
     background-color: #7db6ab;
     padding: 20px 10px;
