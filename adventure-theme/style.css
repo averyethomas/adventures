@@ -274,7 +274,7 @@ body {
           color: #ffffff;
           background-color: rgba(125, 182, 171, 0.6);
           text-align: center;
-          height: 85px;
+          height: 91px;
           width: 100%;
           position: absolute;
           bottom: 0;
@@ -346,6 +346,10 @@ body {
       right: 10px; }
     body .single .map-button:hover {
       border: 3px solid #f16262; }
+    body .single .map-button svg {
+      padding: 10px;
+      width: 30px;
+      height: 30px; }
   body .single .content-container {
     margin: 0 auto;
     box-sizing: border-box;
@@ -507,3 +511,5 @@ body {
           body footer ul li a:visited {
             color: #ffffff;
             text-decoration: none !important; }
+        body footer ul li p {
+          margin-bottom: 0; }

@@ -51,7 +51,7 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', '$anchorScroll'
 
             var template = [
                 '<?xml version="1.0"?>',
-                '<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.55 111.04" width="25">',
+                '<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.55 111.04" width="25px" height="25px">',
                 '<path d="M381.65,55.59A23.65,23.65,0,0,1,405.3,31.94c0-6.22,0-11.71,0-16a38,38,0,0,0-35.43,23.37h0a41.44,41.44,0,0,0,3.45,39.06L405.25,127s0-22.29,0-47.73A23.65,23.65,0,0,1,381.65,55.59Z" transform="translate(-366.52 -15.92)" style="fill: {{ color1 }}"/>',
                 ' <path d="M405.3,31.94h0a23.65,23.65,0,0,0,0,47.29h0" transform="translate(-366.52 -15.92)" style="fill:#fff"/>',
                 '<path d="M440.73,39.29h0A38,38,0,0,0,405.3,15.92c0,4.31,0,9.8,0,16a23.65,23.65,0,1,1,0,47.29c0,25.44,0,47.73,0,47.73l32-48.62A41.44,41.44,0,0,0,440.73,39.29Z" transform="translate(-366.52 -15.92)" style="fill: {{ color2 }}"/>',
@@ -61,8 +61,13 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', '$anchorScroll'
 
             var iconOnLoad = template.replace('{{ color1 }}', darkColor).replace('{{ color2 }}', lightColor).replace('{{ color3 }}', '#fff');
             var iconOnHover = template.replace('{{ color1 }}', darkColor).replace('{{ color2 }}', lightColor).replace('{{ color3 }}', highlightColor);
-            var iconLoad = { url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(iconOnLoad) }
-            var iconHover = { url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(iconOnHover) }
+            var iconLoad = {
+                url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(iconOnLoad),
+                scaledSize: new google.maps.Size(35,35),
+            }
+            var iconHover = { url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(iconOnHover),
+                scaledSize: new google.maps.Size(35,35),
+            }
 
             var mapOptions = {
                 zoom: 3,
@@ -227,6 +232,7 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', '$anchorScroll'
                     map: $scope.map,
                     position: new google.maps.LatLng(info.lat, info.long),
                     icon: iconLoad,
+                    optimized: false,
                     title: info.title,
                     link: info.title.replace(/\s/g,''),
                 });
@@ -310,7 +316,7 @@ app.controller('singlePostsCtrl', ['$scope', '$http','apiCall', '$anchorScroll',
     
                 var template = [
                     '<?xml version="1.0"?>',
-                    '<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.55 111.04" width="25">',
+                    '<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.55 111.04" width="25px" height="25px">',
                     '<path d="M381.65,55.59A23.65,23.65,0,0,1,405.3,31.94c0-6.22,0-11.71,0-16a38,38,0,0,0-35.43,23.37h0a41.44,41.44,0,0,0,3.45,39.06L405.25,127s0-22.29,0-47.73A23.65,23.65,0,0,1,381.65,55.59Z" transform="translate(-366.52 -15.92)" style="fill: {{ color1 }}"/>',
                     ' <path d="M405.3,31.94h0a23.65,23.65,0,0,0,0,47.29h0" transform="translate(-366.52 -15.92)" style="fill:#fff"/>',
                     '<path d="M440.73,39.29h0A38,38,0,0,0,405.3,15.92c0,4.31,0,9.8,0,16a23.65,23.65,0,1,1,0,47.29c0,25.44,0,47.73,0,47.73l32-48.62A41.44,41.44,0,0,0,440.73,39.29Z" transform="translate(-366.52 -15.92)" style="fill: {{ color2 }}"/>',

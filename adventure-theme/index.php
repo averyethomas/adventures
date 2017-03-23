@@ -19,7 +19,7 @@
       <div class="map" ng-init="initMap();">
         <div id="map"></div>
       </div>
-      <div class="locations-grid container" id="locations">
+      <div class="locations-grid container">
         <ul>
           <li class="location-tile" ng-repeat="post in posts" id="{{post.acf.title | removeSpaces}}">
             <div class="location-hover"><a class="location-info" ng-href="{{post.link}}">

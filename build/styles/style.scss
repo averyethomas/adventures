@@ -351,7 +351,7 @@ body {
             color: $white;
             background-color: rgba(125, 182, 171, 0.6);
             text-align: center;
-            height: 85px;
+            height: 91px;
             width: 100%;
             position: absolute;
             bottom: 0;
@@ -447,6 +447,12 @@ body {
         
         &:hover{
             border: 3px solid $salmon;
+        }
+        
+        svg{
+          padding: 10px;
+          width: 30px;
+          height: 30px;
         }
     }
     .content-container {
@@ -676,6 +682,9 @@ body {
             color: $white;
             text-decoration: none !important;
           }
+        }
+        p{
+          margin-bottom: 0;
         }
       }
     }

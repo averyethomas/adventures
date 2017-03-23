@@ -19,6 +19,6 @@
         <li><a href="/"><img src="images/logo.png"></a></li>
         <li class="home"><a href="/index.html">HOME</a></li>
         <li><a href="/##about">ABOUT</a></li>
-        <li><a href="/##locations">LOCATIONS</a></li>
+        <li><a href="/##map-section">LOCATIONS</a></li>
       </ul>
     </div>
