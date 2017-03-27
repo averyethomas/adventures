@@ -1,6 +1,6 @@
 <footer ng-class="{'mapClosed': isMapClosed}">
     <ul>
-      <li><a href="#">Disclaimer / Privacy</a></li>
+      <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
       <li>
         <p>Theme By<a href="http://averyethomas.com" target="_blank"> Avery Thomas</a></p>
       </li>

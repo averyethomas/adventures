@@ -7,6 +7,7 @@ var highlightColor = '#f16262';
 app.controller('mainCtrl', ['$scope', function ($scope) {
 
     $scope.showMenu = false;
+    $scope.fullHero = false;
 
 }]);
 

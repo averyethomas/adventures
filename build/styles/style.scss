@@ -94,6 +94,7 @@ body {
     line-height: 56px;
     font-weight: 700;
     margin-bottom: 20px;
+    color: $dark-teal;
   }
   h2 {
     font-size: 36px;
@@ -318,6 +319,7 @@ body {
           width: 100%;
           margin: 0 0 10px;
           position: relative;
+          border: 3px solid #ffffff;
 
           @include responsive(tablet) {
             height: 225px;
@@ -325,7 +327,6 @@ body {
             float: left;
             position: relative;
             margin: 0 10px 20px 10px;
-            border: 3px solid #ffffff;
 
             &:first-of-type {
               width: calc(50% - 20px);
@@ -351,7 +352,7 @@ body {
             color: $white;
             background-color: rgba(125, 182, 171, 0.6);
             text-align: center;
-            height: 91px;
+            height: 85px;
             width: 100%;
             position: absolute;
             bottom: 0;
@@ -631,6 +632,32 @@ body {
           }
         }
       }
+    }
+  }
+  .content-container{
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-top: 80px;
+    
+    h1{
+        color: $dark-teal;
+        text-align: center;
+      }
+    
+    .content {
+      text-align: left;
+      max-width: 850px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      
+      p{
+        margin: 0 0 25px;
+      }
+    
+      h3{
+          color: $dark-teal;
+      }
+
     }
   }
   footer {

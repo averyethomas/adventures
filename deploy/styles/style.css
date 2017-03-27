@@ -77,7 +77,8 @@ body {
     font-size: 50px;
     line-height: 56px;
     font-weight: 700;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    color: #7db6ab; }
   body h2 {
     font-size: 36px;
     line-height: 40px;
@@ -249,15 +250,15 @@ body {
         height: 291px;
         width: 100%;
         margin: 0 0 10px;
-        position: relative; }
+        position: relative;
+        border: 3px solid #ffffff; }
         @media all and (min-width: 768px) {
           body .home .map-section .locations-grid .location-tile {
             height: 225px;
             width: calc(50% - 20px);
             float: left;
             position: relative;
-            margin: 0 10px 20px 10px;
-            border: 3px solid #ffffff; }
+            margin: 0 10px 20px 10px; }
             body .home .map-section .locations-grid .location-tile:first-of-type {
               width: calc(50% - 20px);
               height: 470px; }
@@ -274,7 +275,7 @@ body {
           color: #ffffff;
           background-color: rgba(125, 182, 171, 0.6);
           text-align: center;
-          height: 91px;
+          height: 85px;
           width: 100%;
           position: absolute;
           bottom: 0;
@@ -474,6 +475,22 @@ body {
             text-decoration: none !important; }
         body .single footer ul li p {
           margin-bottom: 0; }
+  body .content-container {
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-top: 80px; }
+    body .content-container h1 {
+      color: #7db6ab;
+      text-align: center; }
+    body .content-container .content {
+      text-align: left;
+      max-width: 850px;
+      margin: 0 auto;
+      box-sizing: border-box; }
+      body .content-container .content p {
+        margin: 0 0 25px; }
+      body .content-container .content h3 {
+        color: #7db6ab; }
   body footer {
     background-color: #7db6ab;
     padding: 20px 10px;
