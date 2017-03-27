@@ -124,7 +124,7 @@ body {
     top: 0;
     left: 0;
     display: block;
-    z-index: 10;
+    z-index: 101;
     margin: 15px 15px 10px;
     width: calc(100% - 30px);
 
@@ -135,23 +135,50 @@ body {
       }
     }
     p{
-      font-size: 30px;
-      font-weight: 700;
-      padding-top: 15px;
-      color: $light-teal;
-      height: auto;
+      width: 30px;
       float: right;
+      span{
+        width: 30px;
+        height: 4px;
+        background-color: white;
+        margin: 5px 0;
+        display: block;
+        transition: all 0.2s ease-in;
+      }
+      
+      &.close{
+        span{
+          margin: 0;
+          
+          &:first-of-type{
+            transform: rotate(45deg);
+          }
+          &:nth-of-type(2){
+            visibility: hidden;
+            display: none;
+          }
+          &:last-of-type{
+            transform: rotate(45deg);
+          }
+        }
+      }
     }
 
     @include responsive(tablet){
       display: none;
+    }
+    
+    &.fullHero{
+      p{
+        color: #fff;
+      }
     }
   }
   .nav{
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: calc(100% - 30px);
     height: 100%;
     background-color: rgba(167, 219, 210, 0.9);
     margin: 0;
@@ -179,13 +206,11 @@ body {
     .close{
       opacity: 1;
       text-shadow: none;
+      color: #fff;
+      text-align: right;
 
       @include responsive(tablet){
         display: none;
-      }
-      p{
-        font-size: 26px;
-        color: #fff;
       }
     }
     ul{
@@ -225,6 +250,17 @@ body {
           
           &:hover{
             color: $salmon;
+          }
+        }
+      }
+    }
+    &.fullHero{
+      ul{
+        li{
+          a{
+            @include responsive (tablet){
+            color: white;
+            }
           }
         }
       }

@@ -8,6 +8,12 @@ app.controller('mainCtrl', ['$scope', function ($scope) {
 
     $scope.showMenu = false;
     $scope.fullHero = false;
+    
+    $scope.init = function(data){
+        $scope.fullHero = data;
+    }
+    
+    console.log($scope.fullHero);
 
 }]);
 
@@ -241,7 +247,6 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', '$anchorScroll'
                 $scope.markers.push(marker);
                 
                 marker.addListener('click', function(){
-                    console.log(marker.link);
                     $scope.scrollTo(marker.link);
                     document.getElementById(marker.link).style.border = '3px solid #f16262';
                     document.getElementById(marker.link).getElementsByClassName('location-hover')[0].style.display = 'table';
@@ -306,7 +311,6 @@ app.controller('singlePostsCtrl', ['$scope', '$http','apiCall', '$anchorScroll',
                 $scope.singleLocations.push(value);
             });
             
-            console.log($scope.singleLocations);
             
             $scope.scrollTo = function(point){
                 $location.hash(point);
@@ -535,7 +539,6 @@ app.controller('singlePageCtrl', ['$scope', '$http', 'apiCall', function($scope,
         
         $http.get(apiCall + 'pages/' + pageID).then(function(response){
             $scope.pageData = response.data;
-            console.log($scope.pageData);
         })
     }
 }])

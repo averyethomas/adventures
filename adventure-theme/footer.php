@@ -1,11 +1,11 @@
 <footer ng-class="{'mapClosed': isMapClosed}">
     <ul>
-      <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
+        <?php footer_nav(); ?>
       <li>
         <p>Theme By<a href="http://averyethomas.com" target="_blank"> Avery Thomas</a></p>
       </li>
       <li>
-        <p>&COPY;2017 AVERY THOMAS</p>
+        <p>&COPY; 2017 Avery Thomas</p>
       </li>
     </ul>
 </footer>

@@ -102,7 +102,7 @@ body {
     top: 0;
     left: 0;
     display: block;
-    z-index: 10;
+    z-index: 101;
     margin: 15px 15px 10px;
     width: calc(100% - 30px); }
     body .mobile-nav a {
@@ -110,20 +110,37 @@ body {
       body .mobile-nav a img {
         width: 50px; }
     body .mobile-nav p {
-      font-size: 30px;
-      font-weight: 700;
-      padding-top: 15px;
-      color: #a7dbd2;
-      height: auto;
+      width: 30px;
       float: right; }
+      body .mobile-nav p span {
+        width: 30px;
+        height: 4px;
+        background-color: white;
+        margin: 5px 0;
+        display: block;
+        -webkit-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in; }
+      body .mobile-nav p.close span {
+        margin: 0; }
+        body .mobile-nav p.close span:first-of-type {
+          -webkit-transform: rotate(45deg);
+                  transform: rotate(45deg); }
+        body .mobile-nav p.close span:nth-of-type(2) {
+          visibility: hidden;
+          display: none; }
+        body .mobile-nav p.close span:last-of-type {
+          -webkit-transform: rotate(45deg);
+                  transform: rotate(45deg); }
     @media all and (min-width: 768px) {
       body .mobile-nav {
         display: none; } }
+    body .mobile-nav.fullHero p {
+      color: #fff; }
   body .nav {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: calc(100% - 30px);
     height: 100%;
     background-color: rgba(167, 219, 210, 0.9);
     margin: 0;
@@ -145,13 +162,12 @@ body {
           display: block !important; } }
     body .nav .close {
       opacity: 1;
-      text-shadow: none; }
+      text-shadow: none;
+      color: #fff;
+      text-align: right; }
       @media all and (min-width: 768px) {
         body .nav .close {
           display: none; } }
-      body .nav .close p {
-        font-size: 26px;
-        color: #fff; }
     body .nav ul li {
       display: block;
       margin: 40px auto 20px;
@@ -178,6 +194,9 @@ body {
             font-size: 20px; } }
         body .nav ul li a:hover {
           color: #f16262; }
+    @media all and (min-width: 768px) {
+      body .nav.fullHero ul li a {
+        color: white; } }
   body .home {
     position: relative; }
     body .home .hero-image {
