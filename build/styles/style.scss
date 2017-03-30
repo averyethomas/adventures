@@ -60,9 +60,9 @@ table {
   border-spacing: 0;
 }
 //COLORS
-$dark-teal: #7db6ab;
-$light-teal: #a7dbd2;
-$salmon: #f16262;
+$dark: #0F373B;
+$light: #4b8287;
+$highlight: #87b401;
 $gray: #9c9b9b;
 $white: #ffffff;
 
@@ -74,13 +74,13 @@ body {
     font-size: 16px;
     line-height: 20px;
     font-weight: 500;
-    color: $light-teal;
+    color: $light;
     transition: all 0.15s ease-in-out;
     text-decoration:none;
 
     &:hover {
       text-decoration: none;
-      color: $salmon;
+      color: $highlight;
     }
   }
   p {
@@ -88,13 +88,14 @@ body {
     line-height: 20px;
     font-weight: 300;
     margin-bottom: 15px;
+    color: $dark;
   }
   h1 {
     font-size: 50px;
     line-height: 56px;
     font-weight: 700;
     margin-bottom: 20px;
-    color: $dark-teal;
+    color: $dark;
   }
   h2 {
     font-size: 36px;
@@ -180,7 +181,7 @@ body {
     left: 0;
     width: calc(100% - 30px);
     height: 100%;
-    background-color: rgba(167, 219, 210, 0.9);
+    background-color: rgba(15, 55, 59, 0.9);
     margin: 0;
     z-index: 100;
     padding: 30px 15px;
@@ -244,12 +245,12 @@ body {
           color: white;
 
           @include responsive(tablet){
-            color: $light-teal;
+            color: $dark;
             font-size: 20px;
           }
           
           &:hover{
-            color: $salmon;
+            color: $highlight;
           }
         }
       }
@@ -296,10 +297,10 @@ body {
         }
         h1 {
           text-transform: uppercase;
-          color: $dark-teal;
+          color: $dark;
         }
         p {
-          color: $dark-teal;
+          color: $dark;
         }
       }
 
@@ -318,7 +319,7 @@ body {
 
     .map-section {
       .title {
-        background-color: $dark-teal;
+        background-color: $dark;
         padding: 10px;
 
         h1 {
@@ -386,7 +387,7 @@ body {
 
           .location-hover {
             color: $white;
-            background-color: rgba(125, 182, 171, 0.6);
+            background-color: rgba(15, 55, 59, 0.6);
             text-align: center;
             height: 85px;
             width: 100%;
@@ -462,7 +463,7 @@ body {
     .map-button{
         width: 50px;
         height: 50px;
-        border: 3px solid $dark-teal;
+        border: 3px solid $dark;
         border-radius: 50px;
         z-index: 10;
         position: fixed;
@@ -483,7 +484,7 @@ body {
         }
         
         &:hover{
-            border: 3px solid $salmon;
+            border: 3px solid $highlight;
         }
         
         svg{
@@ -497,6 +498,7 @@ body {
       box-sizing: border-box;
       transition: all 0.2s ease-in-out;
       text-align: center;
+      padding: 0;
 
       @include responsive (tablet) {
         width: 50%;
@@ -532,11 +534,11 @@ body {
           margin: 0 0 25px;
 
           h1 {
-            color: $dark-teal;
+            color: $dark;
             margin: 0;
           }
           h2 {
-            color: $light-teal;
+            color: $light;
             margin: 0 0 25px;
 
             a{
@@ -545,7 +547,7 @@ body {
             }
           }
           h4 {
-            color: $light-teal;
+            color: $light;
             margin: 0 0 25px;
           }
           .single{
@@ -577,7 +579,8 @@ body {
           margin: 0 0 25px;
 
           h3 {
-            color: $dark-teal;
+            color: $dark;
+            padding: 20px 0 0;
             margin: 0 0 25px;
           }
 
@@ -607,14 +610,14 @@ body {
         }
 
         h3 {
-          color: $dark-teal;
+          color: $dark;
         }
 
       }
     }
 
     footer {
-      background-color: $dark-teal;
+      background-color: $dark;
       padding: 20px 10px;
       width: 100%;
       transition: all 0.2s ease-out;
@@ -676,7 +679,7 @@ body {
     padding-top: 80px;
     
     h1{
-        color: $dark-teal;
+        color: $dark;
         text-align: center;
       }
     
@@ -691,13 +694,13 @@ body {
       }
     
       h3{
-          color: $dark-teal;
+          color: $dark;
       }
 
     }
   }
   footer {
-    background-color: $dark-teal;
+    background-color: $dark;
     padding: 20px 10px;
     width: 100%;
     transition: all 0.2s ease-out;
