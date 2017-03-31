@@ -80,4 +80,6 @@ function register_main_menu()
 }
 add_action( 'init', 'register_main_menu' );
 
+require get_template_directory() . '/customizer.php';
+
 ?>

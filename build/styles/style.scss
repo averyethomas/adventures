@@ -132,6 +132,13 @@ body {
     .mobile-nav{
       position: fixed;
     }
+    .mobile-nav{
+      a{
+        svg{
+          fill: $white;
+        }
+      }
+    }
   }
   .mobile-nav{
     position: absolute;
@@ -147,8 +154,12 @@ body {
       img {
         width: 50px;
       }
+      svg{
+        fill: $dark;
+      }
     }
     p{
+      padding-top: 10px;
       width: 30px;
       float: right;
       position: relative;
@@ -208,7 +219,13 @@ body {
     }
     
     &.fullHero{
+      a{
+        svg{
+          fill: $white;
+        }
+      }
       p{
+        
         span{
           &, &::before, &::after{
             background: $white;
@@ -295,6 +312,14 @@ body {
           &:hover{
             color: $highlight;
           }
+          svg{
+            fill: $dark;
+            transition: all 0.15s ease-in-out;
+            
+            &:hover{
+              fill: $highlight;
+            }
+          }
         }
       }
     }
@@ -304,6 +329,10 @@ body {
           a{
             @include responsive (tablet){
             color: white;
+            
+            svg{
+              fill: $white;
+              }
             }
           }
         }
@@ -476,7 +505,7 @@ body {
         height: 300px;
         background-color: #b7cadd;
         background-size: cover;
-        margin: 80px 0 10px;
+        margin: 65px 0 10px;
         transition: all 0.2s ease-out;
         
         #map{

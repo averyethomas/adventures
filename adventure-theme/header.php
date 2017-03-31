@@ -10,13 +10,13 @@
   <body ng-app="angularApp" ng-controller="mainCtrl" ng-init="init(<?php if( is_front_page() ) echo 'true'; else echo 'false' ?>)" ng-class="{'menuOpen' : showMenu}">
     <div class="mobile-nav" ng-class="{'fullHero': fullHero}">
       <a href="/">
-        <img src="images/logo.png">
+        <?php echo get_theme_mod('logo_svg'); ?>
       </a>
       <p ng-click="showMenu = !showMenu" ng-class="{'close' : showMenu}"><span></span></p>
     </div>
     <div class="nav" ng-show="showMenu" ng-class="{'fullHero': fullHero}">
       <ul>
-        <li><a href="/"><img src="images/logo.png"></a></li>
+        <li><a href="/"> <?php echo get_theme_mod('logo_svg'); ?></a></li>
         <li class="home"><a href="/">HOME</a></li>
         <?php main_nav(); ?>
       </ul>

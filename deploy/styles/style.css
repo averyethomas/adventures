@@ -105,6 +105,8 @@ body {
         padding: 0 30px; } }
   body.menuOpen .mobile-nav {
     position: fixed; }
+  body.menuOpen .mobile-nav a svg {
+    fill: #ffffff; }
   body .mobile-nav {
     position: absolute;
     top: 0;
@@ -117,7 +119,10 @@ body {
       float: left; }
       body .mobile-nav a img {
         width: 50px; }
+      body .mobile-nav a svg {
+        fill: #0F373B; }
     body .mobile-nav p {
+      padding-top: 10px;
       width: 30px;
       float: right;
       position: relative; }
@@ -175,6 +180,8 @@ body {
     @media all and (min-width: 768px) {
       body .mobile-nav {
         display: none; } }
+    body .mobile-nav.fullHero a svg {
+      fill: #ffffff; }
     body .mobile-nav.fullHero p span, body .mobile-nav.fullHero p span::before, body .mobile-nav.fullHero p span::after {
       background: #ffffff; }
   body .nav {
@@ -237,9 +244,17 @@ body {
             font-size: 20px; } }
         body .nav ul li a:hover {
           color: #87b401; }
+        body .nav ul li a svg {
+          fill: #0F373B;
+          -webkit-transition: all 0.15s ease-in-out;
+          transition: all 0.15s ease-in-out; }
+          body .nav ul li a svg:hover {
+            fill: #87b401; }
     @media all and (min-width: 768px) {
       body .nav.fullHero ul li a {
-        color: white; } }
+        color: white; }
+        body .nav.fullHero ul li a svg {
+          fill: #ffffff; } }
   body .home {
     position: relative; }
     body .home .hero-image {
@@ -369,7 +384,7 @@ body {
     height: 300px;
     background-color: #b7cadd;
     background-size: cover;
-    margin: 80px 0 10px;
+    margin: 65px 0 10px;
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out; }
     body .single .map #map {
