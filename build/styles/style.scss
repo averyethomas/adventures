@@ -70,6 +70,14 @@ $white: #ffffff;
 
 body {
   font-family: 'Roboto', sans-serif;
+  &.menuOpen{
+    overflow: hidden;
+  }
+  @media all and (min-width: 768px){
+    &.menuOpen{
+      overflow: scroll;
+    }
+  }
   a {
     font-size: 16px;
     line-height: 20px;
@@ -120,6 +128,11 @@ body {
       padding: 0 30px;
     }
   }
+  &.menuOpen{
+    .mobile-nav{
+      position: fixed;
+    }
+  }
   .mobile-nav{
     position: absolute;
     top: 0;
@@ -138,28 +151,53 @@ body {
     p{
       width: 30px;
       float: right;
+      position: relative;
       span{
-        width: 30px;
-        height: 4px;
-        background-color: white;
-        margin: 5px 0;
-        display: block;
-        transition: all 0.2s ease-in;
+        &, &::before, &::after{
+          transition: 0.2s background linear 0.1s, 0.2s top linear 0.2s, 0.2s transform linear;
+          position: absolute;
+          background: $dark;
+          margin: auto;
+          width: 30px;
+          height: 4px;
+          content: '';
+          left: 0;
+          top: 50%;
+        }
+        &{
+          margin-top: 10px;
+        }
+        &::before{
+          top: -10px;
+          transform: rotate(0deg);
+        }
+        &::after{
+          top: 10px;
+          transform: rotate(0deg);
+        }
       }
       
       &.close{
         span{
-          margin: 0;
-          
-          &:first-of-type{
-            transform: rotate(45deg);
+          &{
+            background: none!important;
+            transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s transform linear 0.2s;
           }
-          &:nth-of-type(2){
-            visibility: hidden;
-            display: none;
-          }
-          &:last-of-type{
+          &::before{
+            background: $white;
             transform: rotate(45deg);
+            top: 0;
+            margin-top: 0;
+            width: 100%;
+            transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s transform linear 0.2s;
+          }
+          &::after{
+            background: $white;
+            transform: rotate(-45deg);
+            top: 0;
+            margin-top: 0;
+            width: 100%;
+            transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s transform linear 0.2s;
           }
         }
       }
@@ -171,7 +209,11 @@ body {
     
     &.fullHero{
       p{
-        color: #fff;
+        span{
+          &, &::before, &::after{
+            background: $white;
+          }
+        }
       }
     }
   }
@@ -188,6 +230,7 @@ body {
 
     &.ng-hide{
       display: none;
+      transition: all 0.2s linear;
     }
 
     @include responsive(tablet){
@@ -387,7 +430,7 @@ body {
 
           .location-hover {
             color: $white;
-            background-color: rgba(15, 55, 59, 0.6);
+            background-color: rgba(15, 55, 59, 0.9);
             text-align: center;
             height: 85px;
             width: 100%;
@@ -409,6 +452,7 @@ body {
                 display: none;
                 height: 100%;
                 top: 0;
+                background-color: rgba(15, 55, 59, 0.6);
             }
           }
 
@@ -705,6 +749,7 @@ body {
     width: 100%;
     transition: all 0.2s ease-out;
     box-sizing: border-box;
+    color: $white;
 
     @include responsive(tablet) {
       width: 100%;
@@ -751,6 +796,7 @@ body {
         }
         p{
           margin-bottom: 0;
+          color: $white;
         }
       }
     }

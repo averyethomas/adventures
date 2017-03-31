@@ -7,12 +7,12 @@
     <link href="<?php bloginfo('stylesheet_url'); ?>" rel="stylesheet" type="text/css">
     <?php wp_head(); ?>
   </head>
-  <body ng-app="angularApp" ng-controller="mainCtrl" ng-init="init(<?php if( is_front_page() ) echo 'true'; else echo 'false' ?>)">
+  <body ng-app="angularApp" ng-controller="mainCtrl" ng-init="init(<?php if( is_front_page() ) echo 'true'; else echo 'false' ?>)" ng-class="{'menuOpen' : showMenu}">
     <div class="mobile-nav" ng-class="{'fullHero': fullHero}">
       <a href="/">
         <img src="images/logo.png">
       </a>
-      <p ng-click="showMenu = !showMenu"><span></span><span></span><span></span></p>
+      <p ng-click="showMenu = !showMenu" ng-class="{'close' : showMenu}"><span></span></p>
     </div>
     <div class="nav" ng-show="showMenu" ng-class="{'fullHero': fullHero}">
       <ul>

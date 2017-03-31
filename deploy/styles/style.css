@@ -57,6 +57,11 @@ table {
 
 body {
   font-family: 'Roboto', sans-serif; }
+  body.menuOpen {
+    overflow: hidden; }
+  @media all and (min-width: 768px) {
+    body.menuOpen {
+      overflow: scroll; } }
   body a {
     font-size: 16px;
     line-height: 20px;
@@ -98,6 +103,8 @@ body {
     @media all and (min-width: 768px) {
       body .container {
         padding: 0 30px; } }
+  body.menuOpen .mobile-nav {
+    position: fixed; }
   body .mobile-nav {
     position: absolute;
     top: 0;
@@ -112,31 +119,64 @@ body {
         width: 50px; }
     body .mobile-nav p {
       width: 30px;
-      float: right; }
-      body .mobile-nav p span {
+      float: right;
+      position: relative; }
+      body .mobile-nav p span, body .mobile-nav p span::before, body .mobile-nav p span::after {
+        -webkit-transition: 0.2s background linear 0.1s, 0.2s top linear 0.2s, 0.2s -webkit-transform linear;
+        transition: 0.2s background linear 0.1s, 0.2s top linear 0.2s, 0.2s -webkit-transform linear;
+        transition: 0.2s background linear 0.1s, 0.2s top linear 0.2s, 0.2s transform linear;
+        transition: 0.2s background linear 0.1s, 0.2s top linear 0.2s, 0.2s transform linear, 0.2s -webkit-transform linear;
+        position: absolute;
+        background: #0F373B;
+        margin: auto;
         width: 30px;
         height: 4px;
-        background-color: white;
-        margin: 5px 0;
-        display: block;
-        -webkit-transition: all 0.2s ease-in;
-        transition: all 0.2s ease-in; }
+        content: '';
+        left: 0;
+        top: 50%; }
+      body .mobile-nav p span {
+        margin-top: 10px; }
+      body .mobile-nav p span::before {
+        top: -10px;
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg); }
+      body .mobile-nav p span::after {
+        top: 10px;
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg); }
       body .mobile-nav p.close span {
-        margin: 0; }
-        body .mobile-nav p.close span:first-of-type {
-          -webkit-transform: rotate(45deg);
-                  transform: rotate(45deg); }
-        body .mobile-nav p.close span:nth-of-type(2) {
-          visibility: hidden;
-          display: none; }
-        body .mobile-nav p.close span:last-of-type {
-          -webkit-transform: rotate(45deg);
-                  transform: rotate(45deg); }
+        background: none !important;
+        -webkit-transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s -webkit-transform linear 0.2s;
+        transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s -webkit-transform linear 0.2s;
+        transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s transform linear 0.2s;
+        transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s transform linear 0.2s, 0.2s -webkit-transform linear 0.2s; }
+      body .mobile-nav p.close span::before {
+        background: #ffffff;
+        -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+        top: 0;
+        margin-top: 0;
+        width: 100%;
+        -webkit-transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s -webkit-transform linear 0.2s;
+        transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s -webkit-transform linear 0.2s;
+        transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s transform linear 0.2s;
+        transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s transform linear 0.2s, 0.2s -webkit-transform linear 0.2s; }
+      body .mobile-nav p.close span::after {
+        background: #ffffff;
+        -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+        top: 0;
+        margin-top: 0;
+        width: 100%;
+        -webkit-transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s -webkit-transform linear 0.2s;
+        transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s -webkit-transform linear 0.2s;
+        transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s transform linear 0.2s;
+        transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s transform linear 0.2s, 0.2s -webkit-transform linear 0.2s; }
     @media all and (min-width: 768px) {
       body .mobile-nav {
         display: none; } }
-    body .mobile-nav.fullHero p {
-      color: #fff; }
+    body .mobile-nav.fullHero p span, body .mobile-nav.fullHero p span::before, body .mobile-nav.fullHero p span::after {
+      background: #ffffff; }
   body .nav {
     position: fixed;
     top: 0;
@@ -148,7 +188,9 @@ body {
     z-index: 100;
     padding: 30px 15px; }
     body .nav.ng-hide {
-      display: none; }
+      display: none;
+      -webkit-transition: all 0.2s linear;
+      transition: all 0.2s linear; }
     @media all and (min-width: 768px) {
       body .nav {
         display: block;
@@ -293,7 +335,7 @@ body {
           display: table; }
         body .home .map-section .locations-grid .location-tile .location-hover {
           color: #ffffff;
-          background-color: rgba(15, 55, 59, 0.6);
+          background-color: rgba(15, 55, 59, 0.9);
           text-align: center;
           height: 85px;
           width: 100%;
@@ -312,7 +354,8 @@ body {
             body .home .map-section .locations-grid .location-tile .location-hover {
               display: none;
               height: 100%;
-              top: 0; } }
+              top: 0;
+              background-color: rgba(15, 55, 59, 0.6); } }
         body .home .map-section .locations-grid .location-tile .location-image {
           background: url("https://media1.britannica.com/eb-media/16/114516-004-68B637CA.jpg") no-repeat 50% 50%;
           background-size: cover;
@@ -519,7 +562,8 @@ body {
     width: 100%;
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    color: #ffffff; }
     @media all and (min-width: 768px) {
       body footer {
         width: 100%; }
@@ -551,4 +595,5 @@ body {
             color: #ffffff;
             text-decoration: none !important; }
         body footer ul li p {
-          margin-bottom: 0; }
+          margin-bottom: 0;
+          color: #ffffff; }
