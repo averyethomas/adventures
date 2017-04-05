@@ -109,15 +109,18 @@ body {
     font-size: 36px;
     line-height: 40px;
     font-weight: 500;
+    color: $light;
   }
   h3 {
     font-size: 26px;
     font-weight: 500;
+    color: $dark;
   }
   h4 {
     font-size: 20px;
     line-height: 24px;
     font-weight: 500;
+    color: $light;
   }
   .container {
     padding: 0 10px;
@@ -240,7 +243,8 @@ body {
     left: 0;
     width: calc(100% - 30px);
     height: 100%;
-    background-color: rgba(15, 55, 59, 0.9);
+    background-color: $dark;
+    opacity: 0.9;
     margin: 0;
     z-index: 100;
     padding: 30px 15px;
@@ -255,7 +259,8 @@ body {
       position: absolute;
       margin: 15px 15px 10px;
       z-index: 10;
-      background-color: transparent;
+      background-color: transparent !important;
+      opacity: 1;
       padding: 0;
       width: auto;
       height: auto;
@@ -369,10 +374,6 @@ body {
         }
         h1 {
           text-transform: uppercase;
-          color: $dark;
-        }
-        p {
-          color: $dark;
         }
       }
 
@@ -459,7 +460,8 @@ body {
 
           .location-hover {
             color: $white;
-            background-color: rgba(15, 55, 59, 0.9);
+            opacity: 0.85;
+            background-color: $dark;
             text-align: center;
             height: 85px;
             width: 100%;
@@ -475,6 +477,13 @@ body {
               padding: 0 10px;
               color: $white;
               text-decoration: none;
+              
+              h2{
+                color: $white;
+              }
+              h4{
+                color: $white;
+              }
             }
             
             @include responsive(tablet){
@@ -486,7 +495,7 @@ body {
           }
 
           .location-image {
-            background: url('https://media1.britannica.com/eb-media/16/114516-004-68B637CA.jpg') no-repeat 50% 50%;
+            background: url('') no-repeat 50% 50%;
             background-size: cover;
             position: absolute;
             height: 200px;
@@ -607,11 +616,9 @@ body {
           margin: 0 0 25px;
 
           h1 {
-            color: $dark;
             margin: 0;
           }
           h2 {
-            color: $light;
             margin: 0 0 25px;
 
             a{
@@ -620,7 +627,6 @@ body {
             }
           }
           h4 {
-            color: $light;
             margin: 0 0 25px;
           }
           .single{
@@ -652,7 +658,6 @@ body {
           margin: 0 0 25px;
 
           h3 {
-            color: $dark;
             padding: 20px 0 0;
             margin: 0 0 25px;
           }
@@ -681,16 +686,10 @@ body {
             }
           }
         }
-
-        h3 {
-          color: $dark;
-        }
-
       }
     }
 
     footer {
-      background-color: $dark;
       padding: 20px 10px;
       width: 100%;
       transition: all 0.2s ease-out;
@@ -752,7 +751,6 @@ body {
     padding-top: 80px;
     
     h1{
-        color: $dark;
         text-align: center;
       }
     
@@ -765,11 +763,6 @@ body {
       p{
         margin: 0 0 25px;
       }
-    
-      h3{
-          color: $dark;
-      }
-
     }
   }
   footer {

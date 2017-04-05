@@ -82,4 +82,37 @@ add_action( 'init', 'register_main_menu' );
 
 require get_template_directory() . '/customizer.php';
 
+//CUSTOM CSS
+function mytheme_customize_css(){
+	?>
+	<style type="text/css">
+		body h1{ color: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
+		body h2{ color: <?php echo get_theme_mod('light_color', '#4b8287'); ?>;}
+		body h3{ color: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
+		body h4{ color: <?php echo get_theme_mod('light_color', '#4b8287'); ?>;}
+		body a{ color: <?php echo get_theme_mod('light_color', '#4b8287'); ?>;}
+		body a:hover{ color: <?php echo get_theme_mod('highlight_color', '#87b401'); ?>;}
+		body p{ color: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
+		body .mobile-nav a svg{ fill: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
+		body .mobile-nav p span, body .mobile-nav p span::before, body .mobile-nav p span::after{background: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
+		body .nav{ background-color: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
+		@media all and (min-width: 768px){
+			body .nav ul li a:hover{ color: <?php echo get_theme_mod('highlight_color', '#87b401'); ?>;}
+			body .nav ul li a{ color: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
+		}
+		body .nav ul li a svg{ fill: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
+		body .nav ul li a svg:hover{ fill: <?php echo get_theme_mod('highlight_color', '#87b401'); ?>;}
+		body .home .map-section .title{ background-color: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
+		body .home .map-section .locations-grid .location-tile .location-hover{ background-color: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
+		body .single .map-button{border: 3px solid <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
+		body .single .map-button:hover{border: 3px solid <?php echo get_theme_mod('highlight_color', '#87b401'); ?>;}
+		body footer{ background-color: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
+
+
+	</style>
+	<?php
+}
+
+add_action( 'wp_head', 'mytheme_customize_css');
+
 ?>

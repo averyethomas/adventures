@@ -88,14 +88,17 @@ body {
   body h2 {
     font-size: 36px;
     line-height: 40px;
-    font-weight: 500; }
+    font-weight: 500;
+    color: #4b8287; }
   body h3 {
     font-size: 26px;
-    font-weight: 500; }
+    font-weight: 500;
+    color: #0F373B; }
   body h4 {
     font-size: 20px;
     line-height: 24px;
-    font-weight: 500; }
+    font-weight: 500;
+    color: #4b8287; }
   body .container {
     padding: 0 10px;
     width: 100%;
@@ -190,7 +193,8 @@ body {
     left: 0;
     width: calc(100% - 30px);
     height: 100%;
-    background-color: rgba(15, 55, 59, 0.9);
+    background-color: #0F373B;
+    opacity: 0.9;
     margin: 0;
     z-index: 100;
     padding: 30px 15px; }
@@ -204,7 +208,8 @@ body {
         position: absolute;
         margin: 15px 15px 10px;
         z-index: 10;
-        background-color: transparent;
+        background-color: transparent !important;
+        opacity: 1;
         padding: 0;
         width: auto;
         height: auto; }
@@ -285,10 +290,7 @@ body {
                 -ms-grid-row-align: center;
                 align-self: center; } }
         body .home .about-row .about-info h1 {
-          text-transform: uppercase;
-          color: #0F373B; }
-        body .home .about-row .about-info p {
-          color: #0F373B; }
+          text-transform: uppercase; }
       body .home .about-row .about-image {
         height: 300px;
         background: url("https://scontent.cdninstagram.com/t51.2885-15/e35/15101527_1693024027674449_3970649762813706240_n.jpg?ig_cache_key=MTM4MzQ3Mzc0MzA5MTYyMTUzNw%3D%3D.2") 50% 50% no-repeat;
@@ -350,7 +352,8 @@ body {
           display: table; }
         body .home .map-section .locations-grid .location-tile .location-hover {
           color: #ffffff;
-          background-color: rgba(15, 55, 59, 0.9);
+          opacity: 0.85;
+          background-color: #0F373B;
           text-align: center;
           height: 85px;
           width: 100%;
@@ -365,6 +368,10 @@ body {
             padding: 0 10px;
             color: #ffffff;
             text-decoration: none; }
+            body .home .map-section .locations-grid .location-tile .location-hover a.location-info h2 {
+              color: #ffffff; }
+            body .home .map-section .locations-grid .location-tile .location-hover a.location-info h4 {
+              color: #ffffff; }
           @media all and (min-width: 768px) {
             body .home .map-section .locations-grid .location-tile .location-hover {
               display: none;
@@ -372,7 +379,7 @@ body {
               top: 0;
               background-color: rgba(15, 55, 59, 0.6); } }
         body .home .map-section .locations-grid .location-tile .location-image {
-          background: url("https://media1.britannica.com/eb-media/16/114516-004-68B637CA.jpg") no-repeat 50% 50%;
+          background: url("") no-repeat 50% 50%;
           background-size: cover;
           position: absolute;
           height: 200px;
@@ -461,16 +468,13 @@ body {
       body .single .content-container .content .intro {
         margin: 0 0 25px; }
         body .single .content-container .content .intro h1 {
-          color: #0F373B;
           margin: 0; }
         body .single .content-container .content .intro h2 {
-          color: #4b8287;
           margin: 0 0 25px; }
           body .single .content-container .content .intro h2 a {
             font-size: 36px;
             line-height: 40px; }
         body .single .content-container .content .intro h4 {
-          color: #4b8287;
           margin: 0 0 25px; }
         body .single .content-container .content .intro .single {
           padding: 0; }
@@ -493,7 +497,6 @@ body {
       body .single .content-container .content .location {
         margin: 0 0 25px; }
         body .single .content-container .content .location h3 {
-          color: #0F373B;
           padding: 20px 0 0;
           margin: 0 0 25px; }
         body .single .content-container .content .location .single {
@@ -514,10 +517,7 @@ body {
             width: calc(50% - 10px);
             display: inline-block;
             padding: 0 5px; }
-      body .single .content-container .content h3 {
-        color: #0F373B; }
   body .single footer {
-    background-color: #0F373B;
     padding: 20px 10px;
     width: 100%;
     -webkit-transition: all 0.2s ease-out;
@@ -560,7 +560,6 @@ body {
     box-sizing: border-box;
     padding-top: 80px; }
     body .content-container h1 {
-      color: #0F373B;
       text-align: center; }
     body .content-container .content {
       text-align: left;
@@ -569,8 +568,6 @@ body {
       box-sizing: border-box; }
       body .content-container .content p {
         margin: 0 0 25px; }
-      body .content-container .content h3 {
-        color: #0F373B; }
   body footer {
     background-color: #0F373B;
     padding: 20px 10px;

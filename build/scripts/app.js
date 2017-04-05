@@ -4,6 +4,7 @@ var darkColor = '#2F5154';
 var lightColor = '#4b8287';
 var highlightColor = '#87b401';
 
+
 app.controller('mainCtrl', ['$scope', function ($scope) {
 
     $scope.showMenu = false;
@@ -248,7 +249,7 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', '$anchorScroll'
                 
                 marker.addListener('click', function(){
                     $scope.scrollTo(marker.link);
-                    document.getElementById(marker.link).style.border = '3px solid #87B401';
+                    document.getElementById(marker.link).style.border = '3px solid' + highlightColor;
                     document.getElementById(marker.link).getElementsByClassName('location-hover')[0].style.display = 'table';
 
 
