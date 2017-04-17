@@ -600,9 +600,14 @@ body {
 
       .content {
         text-align: center;
-        max-width: 850px;
+        max-width: 1000px;
         margin: 0 auto;
         box-sizing: border-box;
+        padding: 0 10px;
+        
+        @include responsive(tablet){
+          padding: 0 30px;
+        }
 
         img {
           display: block;
@@ -756,7 +761,7 @@ body {
     
     .content {
       text-align: left;
-      max-width: 850px;
+      max-width: 1000px;
       margin: 0 auto;
       box-sizing: border-box;
       

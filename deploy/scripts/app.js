@@ -243,6 +243,7 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', '$anchorScroll'
                     optimized: false,
                     title: info.title,
                     link: info.title.replace(/\s/g,''),
+                    opacity: 0.8,
                 });
 
                 $scope.markers.push(marker);
@@ -498,7 +499,8 @@ app.controller('singlePostsCtrl', ['$scope', '$http','apiCall', '$anchorScroll',
                         position: new google.maps.LatLng(info.lat, info.long),
                         title: info.name,
                         link: info.name.replace(/\s/g,''),
-                        icon: iconLoad
+                        icon: iconLoad,
+                        opaicty: 0.8,
                     });
     
                     $scope.markers.push(marker);

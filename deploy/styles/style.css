@@ -456,9 +456,13 @@ body {
         margin: 0 auto; } }
     body .single .content-container .content {
       text-align: center;
-      max-width: 850px;
+      max-width: 1000px;
       margin: 0 auto;
-      box-sizing: border-box; }
+      box-sizing: border-box;
+      padding: 0 10px; }
+      @media all and (min-width: 768px) {
+        body .single .content-container .content {
+          padding: 0 30px; } }
       body .single .content-container .content img {
         display: block;
         width: 100%;
@@ -563,7 +567,7 @@ body {
       text-align: center; }
     body .content-container .content {
       text-align: left;
-      max-width: 850px;
+      max-width: 1000px;
       margin: 0 auto;
       box-sizing: border-box; }
       body .content-container .content p {
