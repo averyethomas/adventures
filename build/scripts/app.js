@@ -84,6 +84,7 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', '$anchorScroll'
                 navigationControl: false,
                 mapTypeControl: false,
                 scaleControl: false,
+                scrollwheel: false,
                 styles: [
                     {
                         "elementType": "labels.text.stroke",
