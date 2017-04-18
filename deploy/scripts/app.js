@@ -244,7 +244,7 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', '$anchorScroll'
                     optimized: false,
                     title: info.title,
                     link: info.title.replace(/\s/g,''),
-                    opacity: 0.8,
+                    opacity: 0.85,
                 });
 
                 $scope.markers.push(marker);
@@ -343,6 +343,7 @@ app.controller('singlePostsCtrl', ['$scope', '$http','apiCall', '$anchorScroll',
                     zoom: 13,
                     center: new google.maps.LatLng($scope.singlePost.acf.lat, $scope.singlePost.acf.long),
                     mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    scrollwheel: false,
                     styles: [
                         {
                             "elementType": "labels.text.stroke",
@@ -501,7 +502,7 @@ app.controller('singlePostsCtrl', ['$scope', '$http','apiCall', '$anchorScroll',
                         title: info.name,
                         link: info.name.replace(/\s/g,''),
                         icon: iconLoad,
-                        opaicty: 0.8,
+                        opacity: 0.85,
                     });
     
                     $scope.markers.push(marker);
