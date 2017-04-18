@@ -7,14 +7,16 @@
     get_header();
 ?>
 <div class="home" ng-controller="singlePageCtrl" ng-init="init(<?php echo get_the_ID(); ?>)">
-    <div class="hero-image" ng-style="{'background-image':'url(' + pageData.acf.hero_photo + ')'}"></div>
+    <div class="hero-image" ng-style="{'background-image':'url(' + pageData.acf.hero_photo + ')'}">
+        <p>TEST</p>
+    </div>
     <div class="about-row" id="about">
       <div class="about-info" ng-bind-html="pageData.acf.about_me | preserveHtml"></div>
       <div class="about-image" ng-style="{'background-image':'url(' + pageData.acf.about_image + ')'}"></div>
     </div>
     <div class="map-section" id="map-section" ng-controller="postsCtrl">
       <div class="title">
-        <h1>{{pageData.acf.map_section_title}}</h1>
+        <h1>{{pageData.acf.map_section_title}} ?</h1>
       </div>
       <div class="map" ng-init="initMap();">
         <div id="map"></div>
