@@ -99,6 +99,16 @@ body {
     line-height: 24px;
     font-weight: 500;
     color: #4b8287; }
+  body h5 {
+    font-size: 16px;
+    margin: 0;
+    font-weight: 300;
+    color: #ffffff; }
+    body h5 i {
+      font-style: italic; }
+    @media all and (min-width: 768px) {
+      body h5 {
+        font-size: 26px; } }
   body .container {
     padding: 0 10px;
     width: 100%;
@@ -265,7 +275,39 @@ body {
     body .home .hero-image {
       background: no-repeat 50% 50%;
       height: 100vh;
-      background-size: cover; }
+      background-size: cover;
+      position: relative; }
+      body .home .hero-image .hero-overlay {
+        width: 90%;
+        text-align: center;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%); }
+        body .home .hero-image .hero-overlay h1 {
+          color: #ffffff;
+          margin-bottom: 5px; }
+          @media all and (min-width: 768px) {
+            body .home .hero-image .hero-overlay h1 {
+              font-size: 70px;
+              line-height: 76px; } }
+        body .home .hero-image .hero-overlay h3 {
+          color: #ffffff; }
+          @media all and (min-width: 768px) {
+            body .home .hero-image .hero-overlay h3 {
+              font-size: 36px; } }
+        body .home .hero-image .hero-overlay ul {
+          margin-bottom: 20px; }
+          body .home .hero-image .hero-overlay ul li {
+            display: inline-block;
+            padding: 0 10px;
+            border-right: 1px solid white; }
+            body .home .hero-image .hero-overlay ul li:last-of-type {
+              border: none; }
+            @media all and (min-width: 768px) {
+              body .home .hero-image .hero-overlay ul li {
+                padding: 0 15px; } }
     body .home .about-row {
       padding: 0;
       box-sizing: border-box; }
@@ -572,6 +614,22 @@ body {
       box-sizing: border-box; }
       body .content-container .content p {
         margin: 0 0 25px; }
+  body .error-page {
+    margin-bottom: 50px; }
+    body .error-page h1 {
+      font-size: 75px;
+      line-height: 85px;
+      text-align: left;
+      margin-top: 0; }
+    body .error-page h2 {
+      margin-bottom: 10px; }
+    body .error-page h4 {
+      margin-bottom: 10px; }
+    body .error-page svg {
+      width: 50%;
+      max-width: 400px;
+      margin: 25px auto;
+      display: block; }
   body footer {
     background-color: #0F373B;
     padding: 20px 10px;

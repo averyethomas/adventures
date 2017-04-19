@@ -33,6 +33,14 @@ function theme_customizer ( $wp_customize ) {
         'section' => 'color_section',
         'settings' => 'light_color',
     ) ) );
+     $wp_customize->add_setting('overlay_text_color', array(
+        'default' => '#ffffff'
+    ) );
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'overlay_text_color', array(
+        'label' => 'Overlay Text Color',
+        'section' => 'color_section',
+        'settings' => 'overlay_text_color',
+    ) ) );
     
     //Logo SVG
     $wp_customize->add_section('logo_section', array(

@@ -122,6 +122,20 @@ body {
     font-weight: 500;
     color: $light;
   }
+  h5{
+    font-size: 16px;
+    margin: 0;
+    font-weight: 300;
+    color: #ffffff;
+    
+    i{
+      font-style: italic;
+    }
+    
+    @include responsive (tablet){
+      font-size: 26px;
+    }
+  }
   .container {
     padding: 0 10px;
     width: 100%;
@@ -351,6 +365,49 @@ body {
       background: no-repeat 50% 50%;
       height: 100vh;
       background-size: cover;
+      position: relative;
+      
+      .hero-overlay{
+        width: 90%;
+        text-align: center;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        h1{
+          color: #ffffff;
+          margin-bottom: 5px;
+          
+          @include responsive (tablet){
+            font-size: 70px;
+            line-height: 76px;
+          }
+        }
+        h3{
+          color: #ffffff;
+          @include responsive(tablet){
+            font-size: 36px;
+          }
+        }
+        ul{
+          margin-bottom: 20px;
+          li{
+            display: inline-block;
+            padding: 0 10px;
+            border-right: 1px solid white;
+            
+            &:last-of-type{
+                border: none;
+              }
+            
+            @include responsive(tablet){
+              padding: 0 15px;
+            }
+            
+          }
+        }
+      }
     }
     .about-row {
       padding: 0;
@@ -768,6 +825,28 @@ body {
       p{
         margin: 0 0 25px;
       }
+    }
+  }
+  .error-page{
+    margin-bottom: 50px;
+    
+    h1{
+      font-size: 75px;
+      line-height: 85px;
+      text-align: left;
+      margin-top: 0;
+    }
+    h2{
+      margin-bottom: 10px;
+    }
+    h4{
+      margin-bottom: 10px;
+    }
+    svg{
+      width: 50%;
+      max-width: 400px;
+      margin: 25px auto;
+      display: block;
     }
   }
   footer {

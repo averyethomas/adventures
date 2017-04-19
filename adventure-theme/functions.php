@@ -90,6 +90,7 @@ function mytheme_customize_css(){
 		body h2{ color: <?php echo get_theme_mod('light_color', '#4b8287'); ?>;}
 		body h3{ color: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
 		body h4{ color: <?php echo get_theme_mod('light_color', '#4b8287'); ?>;}
+		body h5{ color: <?php echo get_theme_mod('overlay_text_color', '#FFFFFF'); ?>;}
 		body a{ color: <?php echo get_theme_mod('light_color', '#4b8287'); ?>;}
 		body a:hover{ color: <?php echo get_theme_mod('highlight_color', '#87b401'); ?>;}
 		body p{ color: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
@@ -102,6 +103,9 @@ function mytheme_customize_css(){
 		}
 		body .nav ul li a svg{ fill: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
 		body .nav ul li a svg:hover{ fill: <?php echo get_theme_mod('highlight_color', '#87b401'); ?>;}
+		body .home .hero-image .hero-overlay h1{ color: <?php echo get_theme_mod('overlay_text_color', '#FFFFFF'); ?>; }
+		body .home .hero-image .hero-overlay ul li{ border-right: 1px solid <?php echo get_theme_mod('overlay_text_color', '#FFFFFF'); ?>; }
+		body .home .hero-image .hero-overlay h3{ color: <?php echo get_theme_mod('overlay_text_color', '#FFFFFF'); ?>; }
 		body .home .map-section .title{ background-color: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
 		body .home .map-section .locations-grid .location-tile .location-hover{ background-color: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
 		body .single .map-button{border: 3px solid <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
