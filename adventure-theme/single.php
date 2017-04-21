@@ -43,6 +43,7 @@
             <div ng-repeat="item in location.images">
               <div class="single" ng-if="item.acf_fc_layout == 'single'"><img ng-src="{{item.image}}"></div>
               <div class="double" ng-if="item.acf_fc_layout == 'double'"><img ng-src="{{item.image_left}}"><img ng-src="{{item.image_right}}"></div>
+              <div class="tall" ng-if="item.acf_fc_layout == 'tall'"><img ng-src="{{item.image}}"></div>              
             </div>
           </div>
         </div>

@@ -673,6 +673,7 @@ body {
         }
         p {
           margin: 0 0 25px;
+          text-align: left;
         }
         .intro {
           margin: 0 0 25px;
@@ -733,6 +734,23 @@ body {
               width: calc(100% - 10px);
               display: block;
               padding: 0 5px;
+            }
+          }
+          
+          .tall{
+            padding: 0;
+            @include responsive(tablet){
+              padding: 0 20px;
+            }
+            img{
+              width: calc(100% - 10px);
+              display: block;
+              padding: 0 5px;
+              
+              @include responsive(tablet){
+                width: calc(50% - 10px);
+                margin: 0 auto 10px;
+              }
             }
           }
           .double{

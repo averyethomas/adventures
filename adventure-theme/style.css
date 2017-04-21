@@ -510,7 +510,8 @@ body {
         width: 100%;
         margin: 0 0 10px; }
       body .single .content-container .content p {
-        margin: 0 0 25px; }
+        margin: 0 0 25px;
+        text-align: left; }
       body .single .content-container .content .intro {
         margin: 0 0 25px; }
         body .single .content-container .content .intro h1 {
@@ -554,6 +555,19 @@ body {
             width: calc(100% - 10px);
             display: block;
             padding: 0 5px; }
+        body .single .content-container .content .location .tall {
+          padding: 0; }
+          @media all and (min-width: 768px) {
+            body .single .content-container .content .location .tall {
+              padding: 0 20px; } }
+          body .single .content-container .content .location .tall img {
+            width: calc(100% - 10px);
+            display: block;
+            padding: 0 5px; }
+            @media all and (min-width: 768px) {
+              body .single .content-container .content .location .tall img {
+                width: calc(50% - 10px);
+                margin: 0 auto 10px; } }
         body .single .content-container .content .location .double {
           padding: 0; }
           @media all and (min-width: 768px) {
