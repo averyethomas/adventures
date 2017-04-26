@@ -5,7 +5,7 @@
         <p>Theme By<a href="http://averyethomas.com" target="_blank"> Avery Thomas</a></p>
       </li>
       <li>
-        <p>&COPY; 2017 Avery Thomas</p>
+        <p>&COPY;<?php echo date("Y"); ?> <?php $user_info = get_userdata(1); echo $user_info->display_name ?></p>
       </li>
     </ul>
 </footer>

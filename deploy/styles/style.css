@@ -577,6 +577,15 @@ body {
             width: calc(50% - 10px);
             display: inline-block;
             padding: 0 5px; }
+        body .single .content-container .content .location .triple {
+          padding: 0; }
+          @media all and (min-width: 768px) {
+            body .single .content-container .content .location .triple {
+              padding: 0 20px; } }
+          body .single .content-container .content .location .triple img {
+            width: calc(33.3333% - 10px);
+            display: inline-block;
+            padding: 0 5px; }
   body .single footer {
     padding: 20px 10px;
     width: 100%;

@@ -765,6 +765,18 @@ body {
               padding: 0 5px;
             }
           }
+          .triple{
+            padding: 0;
+
+            @include responsive(tablet){
+              padding: 0 20px;
+            }
+            img{
+              width: calc(33.3333% - 10px);
+              display: inline-block;
+              padding: 0 5px;
+            }
+          }
         }
       }
     }

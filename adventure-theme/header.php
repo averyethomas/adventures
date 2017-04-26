@@ -1,7 +1,7 @@
 <!doctype html>
     <html <?php language_attributes(); ?> >
   <head>
-    <title>Adventures of Avery</title>
+    <title><?php bloginfo('name'); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--CSS-->
     <link href="<?php bloginfo('stylesheet_url'); ?>" rel="stylesheet" type="text/css">
