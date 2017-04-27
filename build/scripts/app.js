@@ -18,13 +18,25 @@ app.controller('mainCtrl', ['$scope', function ($scope) {
 
 }]);
 
-app.factory('postsData', ['$http', function ($http) {
+app.factory('apiCall', ['$location', function($location){
+    
+    var protocol = $location.protocol() + '://';
+    var host = $location.host();
+    var origin = protocol + host;
+    var apiPoint = appInfo.api_url;
+    var apiCall = origin + '/' + apiPoint;
+    
+    return apiCall;
+
+}]);
+
+app.factory('postsData', ['$http', 'apiCall', function ($http, apiCall) {
     var promise;
 
     return {
         async: function () {
             if (!promise) {
-                promise = $http.get('http://adventures.averyethomas.com/wp-json/wp/v2/posts?per_page=100').then(function (response) {
+                promise = $http.get(apiCall + '/posts?per_page=100').then(function (response) {
                     return response.data;
                 });
             }
@@ -279,17 +291,6 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', '$anchorScroll'
     });
 }]);
 
-app.factory('apiCall', ['$location', function($location){
-    
-    var protocol = $location.protocol() + '://';
-    var host = $location.host();
-    var origin = protocol + host;
-    var apiPoint = appInfo.api_url;
-    var apiCall = origin + '/' + apiPoint;
-    
-    return apiCall;
-
-}]);
 
 app.controller('singlePostsCtrl', ['$scope', '$http','apiCall', '$anchorScroll', '$location', function ($scope, $http, apiCall, $anchorScroll, $location) {
 

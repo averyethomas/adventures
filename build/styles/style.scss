@@ -703,6 +703,23 @@ body {
               padding: 0 5px;
             }
           }
+          
+          .tall{
+            padding: 0;
+            @include responsive(tablet){
+              padding: 0 20px;
+            }
+            img{
+              width: calc(100% - 10px);
+              display: block;
+              padding: 0 5px;
+              
+              @include responsive(tablet){
+                width: calc(50% - 10px);
+                margin: 0 auto 10px;
+              }
+            }
+          }
           .double{
             padding: 0;
 
@@ -711,6 +728,18 @@ body {
             }
             img{
               width: calc(50% - 10px);
+              display: inline-block;
+              padding: 0 5px;
+            }
+          }
+          .triple{
+            padding: 0;
+
+            @include responsive(tablet){
+              padding: 0 20px;
+            }
+            img{
+              width: calc(33.3333% - 10px);
               display: inline-block;
               padding: 0 5px;
             }

@@ -532,6 +532,19 @@ body {
             width: calc(100% - 10px);
             display: block;
             padding: 0 5px; }
+        body .single .content-container .content .intro .tall {
+          padding: 0; }
+          @media all and (min-width: 768px) {
+            body .single .content-container .content .intro .tall {
+              padding: 0 20px; } }
+          body .single .content-container .content .intro .tall img {
+            width: calc(100% - 10px);
+            display: block;
+            padding: 0 5px; }
+            @media all and (min-width: 768px) {
+              body .single .content-container .content .intro .tall img {
+                width: calc(50% - 10px);
+                margin: 0 auto 10px; } }
         body .single .content-container .content .intro .double {
           padding: 0; }
           @media all and (min-width: 768px) {
@@ -539,6 +552,15 @@ body {
               padding: 0 20px; } }
           body .single .content-container .content .intro .double img {
             width: calc(50% - 10px);
+            display: inline-block;
+            padding: 0 5px; }
+        body .single .content-container .content .intro .triple {
+          padding: 0; }
+          @media all and (min-width: 768px) {
+            body .single .content-container .content .intro .triple {
+              padding: 0 20px; } }
+          body .single .content-container .content .intro .triple img {
+            width: calc(33.3333% - 10px);
             display: inline-block;
             padding: 0 5px; }
       body .single .content-container .content .location {
