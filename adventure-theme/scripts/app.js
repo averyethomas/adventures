@@ -14,8 +14,6 @@ app.controller('mainCtrl', ['$scope', function ($scope) {
         $scope.fullHero = data;
     }
     
-    console.log($scope.fullHero);
-
 }]);
 
 app.factory('apiCall', ['$location', function($location){
@@ -36,7 +34,7 @@ app.factory('postsData', ['$http', 'apiCall', function ($http, apiCall) {
     return {
         async: function () {
             if (!promise) {
-                promise = $http.get(apiCall + '/posts?per_page=100').then(function (response) {
+                promise = $http.get(apiCall + 'posts?per_page=100').then(function (response) {
                     return response.data;
                 });
             }

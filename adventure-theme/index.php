@@ -6,30 +6,53 @@
     
     get_header();
 ?>
-<div class="home" ng-controller="singlePageCtrl" ng-init="init(<?php echo get_the_ID(); ?>)">
-    <div class="hero-image" ng-style="{'background-image':'url(' + pageData.acf.hero_photo + ')'}">
-        <div class="hero-overlay" ng-bind-html="pageData.acf.hero_overlay | preserveHtml"></div>
+<div class="home">
+    <div class="hero-image" style="background-image: linear-gradient(-35deg, <?php echo get_theme_mod('dark_color', '#0F5154'); ?>25, <?php echo get_theme_mod('dark_color', '#0F5154'); ?>95), url(<?php the_field('hero_photo'); ?>);">
+        <div class="hero-overlay">
+            <?php the_field('hero_overlay'); ?>
+        </div>
     </div>
     <div class="about-row" id="about">
-      <div class="about-info" ng-bind-html="pageData.acf.about_me | preserveHtml"></div>
-      <div class="about-image" ng-style="{'background-image':'url(' + pageData.acf.about_image + ')'}"></div>
-    </div>
-    <div class="map-section" id="map-section" ng-controller="postsCtrl">
-      <div class="title">
-        <h1>{{pageData.acf.map_section_title}}</h1>
+      <div class="about-info">
+        <?php the_field('about_me'); ?>
       </div>
+      <div class="about-image" style="background-image: url(<?php the_field('about_image'); ?>);"></div>
+    </div>
+    <div class="map-section" id="locations" ng-controller="postsCtrl">
+      <div class="title"></div>
       <div class="map" ng-init="initMap();">
         <div id="map"></div>
       </div>
       <div class="locations-grid container">
-        <ul>
-          <li class="location-tile" ng-repeat="post in posts" id="{{post.acf.title | removeSpaces}}">
-            <div class="location-hover"><a class="location-info" ng-href="{{post.link}}">
-                <h2>{{post.title.rendered}}</h2>
-                <h4>{{post.date | date:'MMMM yyyy'}}</h4></a></div>
-            <div class="location-image" ng-style="{'background-image':'url({{post.acf.thumbnail_image}})'}"></div>
-          </li>
-        </ul>
+<?php   $args = array (
+            'posts_per_page' => 24
+        );
+
+        $the_query = new WP_Query( $args );
+
+        if ( $the_query->have_posts() ) :
+                echo '<ul>';
+                
+                while ( $the_query->have_posts() ):
+                    $the_query->the_post();
+ ?>
+        <li class="location-tile">
+            <a class="location-link" href="<?php the_permalink(); ?>">
+                <div class="location-hover" >
+                    <div class="location-info">
+                        <h2><?php the_title(); ?></h2>
+                        <h4><?php the_date('F Y'); ?></h4>
+                    </div>
+                </div>
+                <div class="location-image" style="background-image: url(<?php the_field('thumbnail_image'); ?>"></div>
+            </a>
+        </li>
+ <?php          endwhile;
+                echo '</ul>';
+
+                wp_reset_postdata();
+        endif;
+?>
       </div>
     </div>
 </div>

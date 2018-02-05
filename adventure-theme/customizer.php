@@ -58,6 +58,22 @@ function theme_customizer ( $wp_customize ) {
         'type' => 'textarea',
     ) );
     
+    //Google Maps API
+    $wp_customize->add_section('map_section', array(
+        'title' => 'Google Maps API KEY',
+        'description' => '',
+        'priority' => 30,
+    ) );
+    $wp_customize->add_setting('map_key', array(
+        'default' => '',
+    ) );
+    $wp_customize->add_control('map_key_value', array(
+        'label' => 'Google Maps API Key',
+        'section' => 'map_section',
+        'settings' => 'map_key',
+        'type' => 'text',
+    ) );
+    
 }
 
 add_action( 'customize_register', 'theme_customizer', 20);

@@ -5,11 +5,17 @@
      */
     
     get_header();
+    
+    while ( have_posts() ) : the_post();
 ?>
 
-<div ng-cloak class="content-container container" ng-controller="singlePageCtrl" ng-init="init(<?php echo get_the_ID(); ?>)">
-    <h1>{{ pageData.title.rendered }}</h1>
-    <div class="content" ng-bind-html="pageData.content.rendered | preserveHtml"></div>
+<div ng-cloak class="content-container container">
+    <h1><?php the_title(); ?></h1>
+    <div class="content">
+        <?php the_content(); ?>
+    </div>
 </div>
 
-<?php get_footer(); ?>
+<?php   endwhile;
+        get_footer();
+?>
