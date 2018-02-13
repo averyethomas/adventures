@@ -4,7 +4,8 @@
      *
      */
     
-    get_header();
+      get_header();
+      while ( have_posts() ) : the_post();
 ?>
 <div class="single" ng-controller="singlePostsCtrl" ng-init="init(<?php echo get_the_ID(); ?>)" ng-cloak>
       <div class="map-button" ng-click="closeMap();" ng-class="{'mapClosed': isMapClosed}">
@@ -29,28 +30,93 @@
       <div class="content-container container" ng-class="{'mapClosed': isMapClosed}">
         <div class="content">
           <div class="intro">
-            <h1>{{singlePost.title.rendered}}</h1>
-            <h4>{{singlePost.date | date:'MMMM yyyy'}}</h4>
-            <p ng-bind-html="singlePost.acf.intro | preserveHtml"></p>
-            <div ng-repeat="item in singlePost.acf.intro_images">
-              <div class="single" ng-if="item.acf_fc_layout == 'single'"><img ng-src="{{item.image}}"></div>
-              <div class="double" ng-if="item.acf_fc_layout == 'double'"><img ng-src="{{item.image_left}}"><img ng-src="{{item.image_right}}"></div>
-              <div class="tall" ng-if="item.acf_fc_layout == 'tall'"><img ng-src="{{item.image}}"></div>              
-              <div class="triple" ng-if="item.acf_fc_layout == 'triple'"><img ng-src="{{item.image_left}}"><img ng-src="{{item.image_center}}"><img ng-src="{{item.image_right}}"></div>  
+            <h1><?php the_title(); ?></h1>
+            <h4><?php the_date('F Y'); ?></h4>
+            <p><?php the_field('intro'); ?></p>
+<?php       if( have_rows('intro_images') ):
+                  while( have_rows('intro_images') ): the_row(); 
+                        if( get_row_layout() == 'single' ):
+                              $image = get_sub_field('image');
+                              echo '<div class="single">';
+                              echo '<img src="' . $image['url'] . '" alt="' . $image['alt'] . '" />';
+                              echo '</div>';
+                        endif;
+                        if( get_row_layout() == 'double' ):
+                              $imageLeft = get_sub_field('image_left');
+                              $imageRight = get_sub_field('image_right');
+                              echo '<div class="double">';
+                              echo '<img src="' . $imageLeft['url'] . '" alt="' . $imageLeft['alt'] . '" />';
+                              echo '<img src="' . $imageRight['url'] . '" alt="' . $imageRight['alt'] . '" />';                              
+                              echo '</div>';
+                        endif;
+                        if( get_row_layout() == 'triple' ):
+                              $imageLeft = get_sub_field('image_left');
+                              $imageRight = get_sub_field('image_right');
+                              $imageCenter = get_sub_field('image_center');
+                              echo '<div class="triple">';
+                              echo '<img src="' . $imageLeft['url'] . '" alt="' . $imageLeft['alt'] . '" />';
+                              echo '<img src="' . $imageCenter['url'] . '" alt="' . $imageCenter['alt'] . '" />';                              
+                              echo '<img src="' . $imageRight['url'] . '" alt="' . $imageRight['alt'] . '" />';                              
+                              echo '</div>';
+                        endif;
+                        if( get_row_layout() == 'tall' ):
+                              $image = get_sub_field('image');
+                              echo '<div class="single">';
+                              echo '<img src="' . $image['url'] . '" alt="' . $image['alt'] . '" />';
+                              echo '</div>';
+                        endif;
+                  endwhile;
+            endif; 
+?>
             </div>
-          </div>
-          <div class="location" ng-repeat="location in singlePost.acf.locations track by $index" id="{{location.name | removeSpaces}}">
-            <h3>{{location.name}}</h3>
-            <p ng-bind-html="location.text | preserveHtml"></p>
-            <div ng-repeat="item in location.images">
-              <div class="single" ng-if="item.acf_fc_layout == 'single'"><img ng-src="{{item.image}}"></div>
-              <div class="double" ng-if="item.acf_fc_layout == 'double'"><img ng-src="{{item.image_left}}"><img ng-src="{{item.image_right}}"></div>
-              <div class="tall" ng-if="item.acf_fc_layout == 'tall'"><img ng-src="{{item.image}}"></div>              
-              <div class="triple" ng-if="item.acf_fc_layout == 'triple'"><img ng-src="{{item.image_left}}"><img ng-src="{{item.image_center}}"><img ng-src="{{item.image_right}}"></div>              
-                  
-            </div>
-          </div>
+<?php       if( have_rows('locations') ):
+                  while( have_rows('locations') ): the_row();
+                        $name = get_sub_field('name');
+                        $spacelessname = str_replace(' ', '', $name);
+                        echo '<div class="location" id="' . $spacelessname . '">';
+                        echo '<h3>' . get_sub_field('name') .'</h3>';
+                        echo get_sub_field('text');
+                        if( have_rows('images') ):
+                              while( have_rows('images') ): the_row();
+                                    if( get_row_layout() == 'single' ):
+                                          $image = get_sub_field('image');
+                                          echo '<div class="single">';
+                                          echo '<img src="' . $image['url'] . '" alt="' . $image['alt'] . '" />';
+                                          echo '</div>';
+                                    endif;
+                                    if( get_row_layout() == 'double' ):
+                                          $imageLeft = get_sub_field('image_left');
+                                          $imageRight = get_sub_field('image_right');
+                                          echo '<div class="double">';
+                                          echo '<img src="' . $imageLeft['url'] . '" alt="' . $imageLeft['alt'] . '" />';
+                                          echo '<img src="' . $imageRight['url'] . '" alt="' . $imageRight['alt'] . '" />';                              
+                                          echo '</div>';
+                                    endif;
+                                    if( get_row_layout() == 'triple' ):
+                                          $imageLeft = get_sub_field('image_left');
+                                          $imageRight = get_sub_field('image_right');
+                                          $imageCenter = get_sub_field('image_center');
+                                          echo '<div class="triple">';
+                                          echo '<img src="' . $imageLeft['url'] . '" alt="' . $imageLeft['alt'] . '" />';
+                                          echo '<img src="' . $imageCenter['url'] . '" alt="' . $imageCenter['alt'] . '" />';                              
+                                          echo '<img src="' . $imageRight['url'] . '" alt="' . $imageRight['alt'] . '" />';                              
+                                          echo '</div>';
+                                    endif;
+                                    if( get_row_layout() == 'tall' ):
+                                          $image = get_sub_field('image');
+                                          echo '<div class="single">';
+                                          echo '<img src="' . $image['url'] . '" alt="' . $image['alt'] . '" />';
+                                          echo '</div>';
+                                    endif;
+                              endwhile;
+                        endif;      
+                        echo '</div>';
+                  endwhile;
+            endif;
+?>
         </div>
       </div>
-    <?php get_footer(); ?>
+<?php       endwhile;
+            get_footer();
+?>
 </div>

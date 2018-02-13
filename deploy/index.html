@@ -4,7 +4,7 @@
     <title>Adventures of Avery</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--CSS-->
-    <link href="styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
   </head>
   <body ng-app="angularApp" ng-controller="mainCtrl">
     <div class="mobile-nav"><a href="/index.html"><img src="images/logo.png"></a>
@@ -22,7 +22,22 @@
       </ul>
     </div>
     <div class="home">
-      <div class="hero-image"></div>
+      <div class="hero-image" style="background-image: linear-gradient(-35deg, #0f373b25, #0f373b95), url(http://adventures.averyethomas.com/wp-content/uploads/2017/07/royal-mile-04-1.jpg);"><div class="hero-overlay">
+<h1>adventure</h1>
+<ul>
+<li>
+<h5><i>noun</i></h5>
+</li>
+<li>
+<h5>adventure</h5>
+</li>
+<li>
+<h5>\adventurer\</h5>
+</li>
+</ul>
+<h3>an exciting or remarkable experience</h3>
+</div>
+      </div>
       <div class="about-row" id="about">
         <div class="about-info">
           <h1>Hello.</h1>
@@ -31,20 +46,68 @@
         <div class="about-image"></div>
       </div>
       <div class="map-section" id="map-section" ng-controller="postsCtrl">
-        <div class="title">
-          <h1>Where I've Been</h1>
-        </div>
+        <div class="title"></div>
         <div class="map" ng-init="initMap();">
           <div id="map"></div>
         </div>
         <div class="locations-grid container" id="locations">
           <ul>
-            <li class="location-tile" ng-repeat="post in posts" id="{{post.acf.title | removeSpaces}}">
-              <div class="location-hover"><a class="location-info" href="/single.html">
-                  <h2>{{post.title.rendered}}</h2>
-                  <h4>{{post.date | date:'MMMM yyyy'}}</h4></a></div>
-              <div class="location-image" ng-style="{'background-image':'url({{post.acf.thumbnail_image}})'}">     </div>
-            </li>
+            <li class="location-tile"><a class="location-link" href="single.html">
+                <div class="location-hover">
+                  <div class="location-info">
+                    <h2>Edinburgh</h2>
+                    <h5>34.9018&deg;N | 32.9009&degS</h5>
+                  </div>
+                </div>
+                <div class="location-image" style="background-image:url('https://scontent-atl3-1.cdninstagram.com/vp/6d31d0e0c329e8aea76fcbec4a77c580/5B1F3788/t51.2885-15/e35/18809288_478475599211341_851907235608002560_n.jpg');">     </div></a></li>
+            <li class="location-tile"><a class="location-link">
+                <div class="location-hover">
+                  <div class="location-info">
+                    <h2>Asheville</h2>
+                    <h5>34.9018&deg;N | 32.9009&degS</h5>
+                  </div>
+                </div>
+                <div class="location-image" style="background-image:url('https://scontent-atl3-1.cdninstagram.com/vp/42f412f0c6694a0b1ba2f13844f90551/5B21416E/t51.2885-15/e35/21371912_221590388373710_7352737737327247360_n.jpg');">     </div></a></li>
+            <li class="location-tile"><a class="location-link">
+                <div class="location-hover">
+                  <div class="location-info">
+                    <h2>Charleston</h2>
+                    <h5>34.9018&deg;N | 32.9009&degS</h5>
+                  </div>
+                </div>
+                <div class="location-image" style="background-image:url('https://scontent-atl3-1.cdninstagram.com/vp/88ce870d7b98888057ac70fde5a9c20b/5B0C6562/t51.2885-15/e35/21480281_858932667606984_1469206473992044544_n.jpg');">     </div></a></li>
+            <li class="location-tile"><a class="location-link">
+                <div class="location-hover">
+                  <div class="location-info">
+                    <h2>Charlotte</h2>
+                    <h5>34.9018&deg;N | 32.9009&degS</h5>
+                  </div>
+                </div>
+                <div class="location-image" style="background-image:url('https://scontent-atl3-1.cdninstagram.com/vp/5ce302b908ef1107fd35e7775201754d/5B102974/t51.2885-15/e35/22709543_1344416392352945_1646898238919278592_n.jpg');">     </div></a></li>
+            <li class="location-tile"><a class="location-link">
+                <div class="location-hover">
+                  <div class="location-info">
+                    <h2>San Francisco</h2>
+                    <h5>34.9018&deg;N | 32.9009&degS</h5>
+                  </div>
+                </div>
+                <div class="location-image" style="background-image:url('https://scontent-atl3-1.cdninstagram.com/vp/5ab3aaae971a8262b8b26c1e58f5c1d7/5B1525C5/t51.2885-15/e35/23498133_127206981286156_6299502466610233344_n.jpg');">     </div></a></li>
+            <li class="location-tile"><a class="location-link">
+                <div class="location-hover">
+                  <div class="location-info">
+                    <h2>London</h2>
+                    <h5>34.9018&deg;N | 32.9009&degS</h5>
+                  </div>
+                </div>
+                <div class="location-image" style="background-image:url('https://scontent-atl3-1.cdninstagram.com/vp/f85055a3ffc6ea008acb7e12588577f4/5B0507D6/t51.2885-15/e35/23734307_161390884468732_3019840726142812160_n.jpg');">     </div></a></li>
+            <li class="location-tile"><a class="location-link">
+                <div class="location-hover">
+                  <div class="location-info">
+                    <h2>New York</h2>
+                    <h5>34.9018&deg;N | 32.9009&degS</h5>
+                  </div>
+                </div>
+                <div class="location-image" style="background-image:url('https://scontent-atl3-1.cdninstagram.com/vp/c6880d25ffe2de8944280ed57ea7d718/5B15D385/t51.2885-15/e35/26186827_1957598717840066_4198551220144570368_n.jpg');">     </div></a></li>
           </ul>
         </div>
       </div>

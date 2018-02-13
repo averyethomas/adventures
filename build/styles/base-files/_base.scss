@@ -1,0 +1,129 @@
+@import "config";
+@import "mixins";
+@import "theme-head";
+@import "table-of-contents";
+@import "reset";
+
+//COLORS
+$dark: #0F3733;
+$light: #4b8287;
+$highlight: #87b401;
+$gray: #9c9b9b;
+$white: #ffffff;
+
+/*
+------------------------------
+02. TYPOGRAPHY
+------------------------------
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600');
+@import url('https://fonts.googleapis.com/css?family=Oswald:600');
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10px;
+  
+}
+
+  
+a {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    color: $light;
+    transition: all 0.15s ease-in-out;
+    text-decoration:none;
+    &:hover {
+      text-decoration: none;
+      color: $highlight;
+    }
+}
+p {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 300;
+    margin-bottom: 15px;
+    color: $dark;
+}
+h1 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 5rem;
+    line-height: 5.6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: $dark;
+    letter-spacing: 0.25rem;
+}
+h2 {
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: 500;
+    color: $light;
+}
+h3 {
+    font-size: 26px;
+    font-weight: 500;
+    color: $dark;
+}
+h4 {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    color: $light;
+}
+h5{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    margin: 0;
+    font-weight: 300;
+    color: #ffffff;
+    
+    i{
+      font-style: italic;
+    }
+    
+    @media all and (min-width: 768px){
+      font-size: 26px;
+    }
+}
+
+/*
+------------------------------
+03. CONTAINERS
+------------------------------
+*/
+
+body{
+    .container {
+        padding: 0 10px;
+        width: 100%;
+        max-width: 1400px;
+    
+        @include responsive (tablet){
+          padding: 0 30px;
+        }
+    }
+    .content-container{
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding-top: 80px;
+        
+        h1{
+            text-align: center;
+        }
+        
+        .content {
+          text-align: left;
+          max-width: 1000px;
+          margin: 0 auto;
+          box-sizing: border-box;
+          
+          p{
+            margin: 0 0 25px;
+          }
+        }
+    }
+}

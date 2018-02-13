@@ -35,7 +35,7 @@ gulp.task('styles', function(){
     return gulp.src('styles/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer())
-        .pipe(gulp.dest('../' + folder + '/styles/'))
+        .pipe(gulp.dest('../' + folder))
         .pipe(gulp.dest('../' + themeFolder))
         .pipe(connect.reload());
 });
