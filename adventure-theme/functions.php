@@ -107,7 +107,8 @@ function mytheme_customize_css(){
 		body .home .hero-image .hero-overlay ul li{ border-right: 1px solid <?php echo get_theme_mod('overlay_text_color', '#FFFFFF'); ?>; }
 		body .home .hero-image .hero-overlay h3{ color: <?php echo get_theme_mod('overlay_text_color', '#FFFFFF'); ?>; }
 		body .home .map-section .title{ background-color: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
-		body .home .map-section .locations-grid .location-tile .location-hover{ background-color: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
+		body .home .map-section .locations-grid .location-tile .location-link .location-hover{ background: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>25;}
+		body .home .map-section .locations-grid .location-tile .location-link .location-hover:hover{ background: linear-gradient( <?php echo get_theme_mod('dark_color', '#0F5154'); ?>30, <?php echo get_theme_mod('dark_color', '#0F5154'); ?>75 75%);}
 		body .single .map-button{border: 3px solid <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
 		body .single .map-button:hover{border: 3px solid <?php echo get_theme_mod('highlight_color', '#87b401'); ?>;}
 		body footer{ background-color: <?php echo get_theme_mod('dark_color', '#0F5154'); ?>;}
@@ -163,6 +164,28 @@ function adventure_theme_register_required_plugins(){
 
 };
 
+function dec_latlng($dec){
+	$vars = explode('.', $dec);
+	$deg = $vars[0];
+	$tempma = '0.' . $vars[1];
+	
+	$tempma = $tempma * 3600;
+	$min = floor($tempma / 60);
+	$sec = $tempma - ($min * 60);
+	
+	return array('deg' => $deg, 'min' => $min, 'sec' => $sec);
+}
+
+function full_latlng($lat, $lng){
+
+	$latpos = (strpos($lat, '-') !== false) ? 'S' : 'N';
+	$lat = dec_latlng($lat);
+		
+	$lngpos = (strpos($lng, '-') !== false) ? 'W' : 'E';
+	$lng = dec_latlng($lng);
+	
+	return abs($lat['deg']) . '&deg ' . $lat['min'] . '&apos; ' . round($lat['sec'], 2) . '&quot ' . $latpos . ' | ' . abs($lng['deg']) . '&deg ' . $lng['min'] . '&apos; ' . round($lng['sec'], 2) . '&quot ' .  $lngpos;
+ }
 
 
 

@@ -2,7 +2,7 @@
  * Theme Name: Adventures
  * Theme URI: http//adventures.averyethomas.com
  * Description: Travel photography/blog theme that incorporates the use of Google Maps to tag places visited while in different cities"
- * Version: 1.0.0
+ * Version: 1.2.0
  * Author: Avery Thomas
  * Author URI: http://averyethomas.com
  * Tags: Responsive, Google Maps
@@ -19,17 +19,10 @@ TABLE OF CONTENTS
 02. TYPOGRAPHY
 03. CONTAINERS
 04. NAVIGATION
-05. HERO IMAGE
-06. HOME PAGE
-07. SINGLE PAGE
-08. PRESS PAGE
-09. LISTINGS PAGE
-10. INDIVIDUAL LISTING PAGE
-11. CONTACT PAGE
-12. INDIVIDUAL PEOPLE PAGE
-13. LISTINGS CONTAINER
-14. FORM
-15. FOOTER
+05. HOME PAGE
+06. SINGLE PAGE
+07. 404 PAGE
+08. FOOTER
 ------------------------------
 */
 /*
@@ -104,6 +97,9 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 10px; }
 
+html {
+  font-size: 10px; }
+
 a {
   font-size: 16px;
   line-height: 20px;
@@ -126,25 +122,33 @@ p {
 h1 {
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
-  font-size: 5rem;
+  font-size: 3rem;
   line-height: 5.6rem;
   font-weight: 700;
   margin-bottom: 20px;
   color: #0F3733;
   letter-spacing: 0.25rem; }
+  @media all and (min-width: 768px) {
+    h1 {
+      font-size: 5rem; } }
 
 h2 {
+  font-family: 'Open Sans', sans-serif;
   font-size: 36px;
   line-height: 40px;
   font-weight: 500;
   color: #4b8287; }
 
 h3 {
-  font-size: 26px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 3.5rem;
+  line-height: 3.75rem;
+  margin: 0 auto 1rem;
   font-weight: 500;
   color: #0F3733; }
 
 h4 {
+  font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   line-height: 24px;
   font-weight: 500;
@@ -163,6 +167,26 @@ h5 {
     h5 {
       font-size: 26px; } }
 
+h6 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #4b8287; }
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  line-height: 1.9rem;
+  margin: 0; }
+
+a {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 2.15rem; }
+
 /*
 ------------------------------
 03. CONTAINERS
@@ -179,7 +203,11 @@ body .container {
 body .content-container {
   margin: 0 auto;
   box-sizing: border-box;
-  padding-top: 80px; }
+  padding-top: 80px;
+  min-height: calc(100vh - 120px); }
+  @media all and (min-width: 1200px) {
+    body .content-container {
+      min-height: calc(100vh - 61px); } }
   body .content-container h1 {
     text-align: center; }
   body .content-container .content {
@@ -290,7 +318,7 @@ body .nav {
   position: fixed;
   top: 0;
   left: 0;
-  width: calc(100% - 30px);
+  width: calc(100%);
   height: 100%;
   background-color: #0F3733;
   opacity: 0.9;
@@ -322,38 +350,41 @@ body .nav {
     @media all and (min-width: 768px) {
       body .nav .close {
         display: none; } }
-  body .nav ul li {
-    display: block;
-    margin: 40px auto 20px;
-    text-align: center; }
-    body .nav ul li:first-of-type {
-      display: none; }
-    @media all and (min-width: 768px) {
-      body .nav ul li {
-        margin: 0 15px 0 0;
-        display: inline-block;
-        vertical-align: middle; }
-        body .nav ul li:first-of-type {
-          display: inline-block; }
-        body .nav ul li.home {
-          display: none; } }
-    body .nav ul li img {
-      width: 50px; }
-    body .nav ul li a {
-      font-size: 36px;
-      color: white; }
+  body .nav ul {
+    padding: 0;
+    list-style: none; }
+    body .nav ul li {
+      display: block;
+      margin: 40px auto 20px;
+      text-align: center; }
+      body .nav ul li:first-of-type {
+        display: none; }
       @media all and (min-width: 768px) {
-        body .nav ul li a {
-          color: #0F3733;
-          font-size: 20px; } }
-      body .nav ul li a:hover {
-        color: #87b401; }
-      body .nav ul li a svg {
-        fill: #0F3733;
-        -webkit-transition: all 0.15s ease-in-out;
-        transition: all 0.15s ease-in-out; }
-        body .nav ul li a svg:hover {
-          fill: #87b401; }
+        body .nav ul li {
+          margin: 0 15px 0 0;
+          display: inline-block;
+          vertical-align: middle; }
+          body .nav ul li:first-of-type {
+            display: inline-block; }
+          body .nav ul li.home {
+            display: none; } }
+      body .nav ul li img {
+        width: 50px; }
+      body .nav ul li a {
+        font-size: 36px;
+        color: white; }
+        @media all and (min-width: 768px) {
+          body .nav ul li a {
+            color: #0F3733;
+            font-size: 20px; } }
+        body .nav ul li a:hover {
+          color: #87b401; }
+        body .nav ul li a svg {
+          fill: #0F3733;
+          -webkit-transition: all 0.15s ease-in-out;
+          transition: all 0.15s ease-in-out; }
+          body .nav ul li a svg:hover {
+            fill: #87b401; }
   @media all and (min-width: 768px) {
     body .nav.fullHero ul li a {
       color: white; }
@@ -369,7 +400,7 @@ body .home {
   position: relative; }
   body .home .hero-image {
     background: no-repeat 50% 50%;
-    height: 100vh;
+    height: 90vh;
     background-size: cover;
     position: relative; }
     body .home .hero-image .hero-overlay {
@@ -382,18 +413,25 @@ body .home {
               transform: translate(-50%, -50%); }
       body .home .hero-image .hero-overlay h1 {
         color: #ffffff;
-        margin-bottom: 5px; }
+        margin-bottom: 5px;
+        font-size: 5rem;
+        line-height: 5rem;
+        margin: 0 auto 1rem; }
         @media all and (min-width: 768px) {
           body .home .hero-image .hero-overlay h1 {
-            font-size: 70px;
-            line-height: 76px; } }
+            font-size: 7rem;
+            line-height: 7rem; } }
       body .home .hero-image .hero-overlay h3 {
-        color: #ffffff; }
+        color: #ffffff;
+        text-transform: uppercase;
+        font-size: 2.5rem;
+        line-height: 3rem; }
         @media all and (min-width: 768px) {
           body .home .hero-image .hero-overlay h3 {
             font-size: 36px; } }
       body .home .hero-image .hero-overlay ul {
-        margin-bottom: 20px; }
+        margin-bottom: 20px;
+        padding: 0; }
         body .home .hero-image .hero-overlay ul li {
           display: inline-block;
           padding: 0 10px;
@@ -438,13 +476,7 @@ body .home {
           width: 50%;
           height: 100%; } }
   body .home .map-section .title {
-    background-color: #0F3733;
-    padding: 10px; }
-    body .home .map-section .title h1 {
-      text-align: center;
-      text-transform: uppercase;
-      color: #ffffff;
-      margin: 20px 0; }
+    height: 20px; }
   body .home .map-section .map {
     height: 300px;
     background-color: #b7cadd;
@@ -488,7 +520,29 @@ body .home {
             width: calc(50% - 20px); } }
       @media all and (min-width: 992px) {
         body .home .map-section .locations-grid .location-tile {
-          width: calc(25% - 20px); } }
+          width: calc(25% - 20px); }
+          body .home .map-section .locations-grid .location-tile:first-of-type {
+            width: calc(50% - 20px);
+            height: 470px; }
+            body .home .map-section .locations-grid .location-tile:first-of-type .location-hover .location-info h2 {
+              font-size: 5.75rem;
+              line-height: 5rem;
+              bottom: -1px;
+              letter-spacing: 0.2rem; }
+          body .home .map-section .locations-grid .location-tile:nth-of-type(2) {
+            width: calc(50% - 20px); }
+            body .home .map-section .locations-grid .location-tile:nth-of-type(2) .location-hover .location-info h2 {
+              font-size: 4.25rem;
+              line-height: 4.25rem;
+              bottom: -3px;
+              letter-spacing: 0.15rem; }
+          body .home .map-section .locations-grid .location-tile:nth-of-type(3) {
+            width: calc(50% - 20px); }
+            body .home .map-section .locations-grid .location-tile:nth-of-type(3) .location-hover .location-info h2 {
+              font-size: 4.25rem;
+              line-height: 4.25rem;
+              bottom: -3px;
+              letter-spacing: 0.15rem; } }
       body .home .map-section .locations-grid .location-tile .location-hover {
         color: #ffffff;
         text-align: center;
@@ -507,7 +561,7 @@ body .home {
           background: -webkit-linear-gradient(rgba(15, 55, 51, 0.3), rgba(15, 55, 51, 0.75) 75%);
           background: linear-gradient(rgba(15, 55, 51, 0.3), rgba(15, 55, 51, 0.75) 75%); }
           body .home .map-section .locations-grid .location-tile .location-hover:hover .location-info h2 {
-            bottom: 27px; }
+            bottom: 30px; }
           body .home .map-section .locations-grid .location-tile .location-hover:hover .location-info h5 {
             bottom: 5px;
             opacity: 1; }
@@ -520,11 +574,14 @@ body .home {
           body .home .map-section .locations-grid .location-tile .location-hover .location-info h2 {
             -webkit-transition: all 0.35s ease-in-out;
             transition: all 0.35s ease-in-out;
+            letter-spacing: 0.05rem;
+            font-size: 3rem;
+            line-height: 3rem;
             color: #ffffff;
             font-family: 'Oswald', sans-serif;
             text-transform: uppercase;
             position: absolute;
-            bottom: -7px;
+            bottom: -2px;
             left: 0;
             right: 0;
             z-index: 5;
@@ -533,7 +590,7 @@ body .home {
             -webkit-transition: all 0.35s ease-in-out;
             transition: all 0.35s ease-in-out;
             color: #ffffff;
-            font-size: 1rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
             position: absolute;
             bottom: -10px;
@@ -600,8 +657,8 @@ body .single .map-button {
     border: 3px solid #87b401; }
   body .single .map-button svg {
     padding: 10px;
-    width: 30px;
-    height: 30px; }
+    width: 45px;
+    height: 45px; }
 
 body .single .content-container {
   margin: 0 auto;
@@ -654,7 +711,7 @@ body .single .content-container {
           body .single .content-container .content .intro .single {
             padding: 0 20px; } }
         body .single .content-container .content .intro .single img {
-          width: calc(100% - 10px);
+          width: 100%;
           display: block;
           padding: 0 5px; }
       body .single .content-container .content .intro .tall {
@@ -663,7 +720,7 @@ body .single .content-container {
           body .single .content-container .content .intro .tall {
             padding: 0 20px; } }
         body .single .content-container .content .intro .tall img {
-          width: calc(100% - 10px);
+          width: 100%;
           display: block;
           padding: 0 5px; }
           @media all and (min-width: 768px) {
@@ -676,7 +733,7 @@ body .single .content-container {
           body .single .content-container .content .intro .double {
             padding: 0 20px; } }
         body .single .content-container .content .intro .double img {
-          width: calc(50% - 10px);
+          width: calc(50%);
           display: inline-block;
           padding: 0 5px; }
       body .single .content-container .content .intro .triple {
@@ -685,7 +742,7 @@ body .single .content-container {
           body .single .content-container .content .intro .triple {
             padding: 0 20px; } }
         body .single .content-container .content .intro .triple img {
-          width: calc(33.3333% - 10px);
+          width: calc(33.3333%);
           display: inline-block;
           padding: 0 5px; }
     body .single .content-container .content .location {
@@ -699,7 +756,7 @@ body .single .content-container {
           body .single .content-container .content .location .single {
             padding: 0 20px; } }
         body .single .content-container .content .location .single img {
-          width: calc(100% - 10px);
+          width: calc(100%);
           display: block;
           padding: 0 5px; }
       body .single .content-container .content .location .tall {
@@ -708,12 +765,12 @@ body .single .content-container {
           body .single .content-container .content .location .tall {
             padding: 0 20px; } }
         body .single .content-container .content .location .tall img {
-          width: calc(100% - 10px);
+          width: calc(100%);
           display: block;
           padding: 0 5px; }
           @media all and (min-width: 768px) {
             body .single .content-container .content .location .tall img {
-              width: calc(50% - 10px);
+              width: calc(50%);
               margin: 0 auto 10px; } }
       body .single .content-container .content .location .double {
         padding: 0; }
@@ -721,7 +778,7 @@ body .single .content-container {
           body .single .content-container .content .location .double {
             padding: 0 20px; } }
         body .single .content-container .content .location .double img {
-          width: calc(50% - 10px);
+          width: calc(50%);
           display: inline-block;
           padding: 0 5px; }
       body .single .content-container .content .location .triple {
@@ -730,12 +787,12 @@ body .single .content-container {
           body .single .content-container .content .location .triple {
             padding: 0 20px; } }
         body .single .content-container .content .location .triple img {
-          width: calc(33.3333% - 10px);
+          width: calc(33.3333%);
           display: inline-block;
           padding: 0 5px; }
 
 body .single footer {
-  padding: 20px 10px;
+  padding: 5px;
   width: 100%;
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out; }
@@ -760,7 +817,7 @@ body .single footer {
         body .single footer ul li {
           display: inline-block;
           padding: 0 10px;
-          border-right: 2px solid white;
+          border-right: 1px solid white;
           margin: 0; }
           body .single footer ul li:last-of-type {
             border: none; } }
@@ -802,7 +859,7 @@ body .error-page {
 */
 body footer {
   background-color: #0F3733;
-  padding: 20px 10px;
+  padding: 5px;
   width: 100%;
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
@@ -827,17 +884,16 @@ body footer {
         body footer ul li {
           display: inline-block;
           padding: 0 10px;
-          border-right: 2px solid white;
+          border-right: 1px solid white;
           margin: 0; }
           body footer ul li:last-of-type {
             border: none; } }
       body footer ul li a {
         color: #ffffff;
         font-weight: 500;
-        text-decoration: none; }
-        body footer ul li a:visited {
-          color: #ffffff;
-          text-decoration: none !important; }
+        text-decoration: none;
+        font-size: 1.2rem; }
       body footer ul li p {
         margin-bottom: 0;
-        color: #ffffff; }
+        color: #ffffff;
+        font-size: 1.2rem; }

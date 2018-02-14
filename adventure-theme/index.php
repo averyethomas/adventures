@@ -35,13 +35,15 @@
                 
                 while ( $the_query->have_posts() ):
                     $the_query->the_post();
+                    $latt = get_field('lat');
+                    $long = get_field('long');
  ?>
         <li class="location-tile">
             <a class="location-link" href="<?php the_permalink(); ?>">
                 <div class="location-hover" >
                     <div class="location-info">
                         <h2><?php the_title(); ?></h2>
-                        <h4><?php the_date('F Y'); ?></h4>
+                        <h5><?php echo full_latlng($latt, $long); ?></h5>
                     </div>
                 </div>
                 <div class="location-image" style="background-image: url(<?php the_field('thumbnail_image'); ?>"></div>

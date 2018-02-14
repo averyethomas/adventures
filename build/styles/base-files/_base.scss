@@ -26,6 +26,10 @@ body{
   
 }
 
+html{
+    font-size: 10px;
+}
+
   
 a {
     font-size: 16px;
@@ -49,25 +53,34 @@ p {
 h1 {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
-    font-size: 5rem;
+    font-size: 3rem;
     line-height: 5.6rem;
     font-weight: 700;
     margin-bottom: 20px;
     color: $dark;
     letter-spacing: 0.25rem;
+    
+    @media all and (min-width: 768px){
+        font-size: 5rem;
+    }
 }
 h2 {
+    font-family: 'Open Sans', sans-serif;
     font-size: 36px;
     line-height: 40px;
     font-weight: 500;
     color: $light;
 }
 h3 {
-    font-size: 26px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5rem;
+    line-height: 3.75rem;
+    margin: 0 auto 1rem;
     font-weight: 500;
     color: $dark;
 }
 h4 {
+    font-family: 'Open Sans', sans-serif;
     font-size: 20px;
     line-height: 24px;
     font-weight: 500;
@@ -89,7 +102,26 @@ h5{
       font-size: 26px;
     }
 }
-
+h6 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    color: $light;
+}
+p{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 1.9rem;
+    margin: 0;
+}
+a{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 2.15rem;
+}
 /*
 ------------------------------
 03. CONTAINERS
@@ -110,6 +142,11 @@ body{
         margin: 0 auto;
         box-sizing: border-box;
         padding-top: 80px;
+        min-height: calc(100vh - 120px);
+        
+        @media all and (min-width: 1200px){
+            min-height: calc(100vh - 61px);
+        }
         
         h1{
             text-align: center;
