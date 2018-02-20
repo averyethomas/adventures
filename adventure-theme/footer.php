@@ -1,4 +1,7 @@
 <footer ng-class="{'mapClosed': isMapClosed}">
+    <ul class="social">
+        <?php social_nav(); ?>
+    </ul>
     <ul>
         <?php footer_nav(); ?>
       <li>

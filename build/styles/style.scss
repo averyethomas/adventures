@@ -630,7 +630,8 @@ body{
           margin: 0 0 10px;
         }
         p {
-          margin: 0 0 25px;
+          max-width: 600px;
+          margin: 0 auto 25px;
           text-align: left;
         }
         .intro {
@@ -885,6 +886,22 @@ body{
 
     ul {
       text-align: center;
+      padding: 0;
+      
+      &.social{
+        li{
+          display: inline-block;
+          padding: 0 10px;
+          margin: 0 auto 1rem;
+          @media all and(min-width: 992px){
+            border-right: none;
+          }
+          a{
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+          }
+        }
+      }
       li {
         display: block;
         margin: 0 0 10px;

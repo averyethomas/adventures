@@ -69,12 +69,36 @@ function footer_nav()
         )
     );
 }
+function social_nav()
+{
+    wp_nav_menu(
+    array(
+        'theme_location'  => 'social-menu',
+        'menu'            => '',
+        'container'       => false,
+        'container_class' => '',
+        'container_id'    => '',
+        'menu_class'      => 'menu',
+        'menu_id'         => '',
+        'echo'            => true,
+        'fallback_cb'     => 'wp_page_menu',
+        'before'          => '',
+        'after'           => '',
+        'link_before'     => '',
+        'link_after'      => '',
+        'items_wrap'      => '%3$s',
+        'depth'           => 0,
+        'walker'          => ''
+        )
+    );
+}
 function register_main_menu()
 {
     register_nav_menus(
         array(
-            'main-menu' => __( 'Main Menu' ), // Main Navigation
-	    'footer-menu' => __( 'Footer Menu' ), //Footer Navigation
+            'main-menu'	  => __( 'Main Menu' ),
+	    'footer-menu' => __( 'Footer Menu' ),
+	    'social-menu' => __( 'Social Menu' )
         )
     );
 }
@@ -186,8 +210,4 @@ function full_latlng($lat, $lng){
 	
 	return abs($lat['deg']) . '&deg ' . $lat['min'] . '&apos; ' . round($lat['sec'], 2) . '&quot ' . $latpos . ' | ' . abs($lng['deg']) . '&deg ' . $lng['min'] . '&apos; ' . round($lng['sec'], 2) . '&quot ' .  $lngpos;
  }
-
-
-
-
 ?>

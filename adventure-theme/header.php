@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--CSS-->
     <link href="<?php bloginfo('stylesheet_url'); ?>" rel="stylesheet" type="text/css">
+    <!-- FONT AWESOME -->
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <?php wp_head(); ?>
   </head>
   <body ng-app="angularApp" ng-controller="mainCtrl" ng-init="init(<?php if( is_front_page() ) echo 'true'; else echo 'false' ?>)" ng-class="{'menuOpen' : showMenu}">
