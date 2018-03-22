@@ -860,6 +860,89 @@ body{
 
 /*
 ------------------------------
+08. SINGLE PAGE
+------------------------------
+*/
+
+body {
+  .content-container.single-page {
+    .content {
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      padding: 0 10px;
+      
+      @include responsive(tablet){
+        padding: 0 30px;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        margin: 0 0 10px;
+      }
+      p {
+        max-width: 600px;
+        margin: 0 auto 25px;
+        text-align: left;
+      }
+      .single{
+        padding: 0;
+        @include responsive(tablet){
+          padding: 0 20px;
+        }
+        img{
+          width: 100%;
+          display: block;
+          padding: 0 5px;
+        }
+      }
+      .tall{
+        padding: 0;
+        @include responsive(tablet){
+          padding: 0 20px;
+        }
+        img{
+          width: 100%;
+          display: block;
+          padding: 0 5px;
+          
+          @include responsive(tablet){
+            width: calc(50% - 10px);
+            margin: 0 auto 10px;
+          }
+        }
+      }
+      .double{
+        padding: 0;
+
+        @include responsive(tablet){
+          padding: 0 20px;
+        }
+        img{
+          width: calc(50%);
+          display: inline-block;
+          padding: 0 5px;
+        }
+      }
+      .triple{
+        padding: 0;
+
+        @include responsive(tablet){
+          padding: 0 20px;
+        }
+        img{
+          width: calc(33.3333%);
+          display: inline-block;
+          padding: 0 5px;
+        }
+      }
+    }
+  }
+}
+/*
+------------------------------
 08.FOOTER
 ------------------------------
 */

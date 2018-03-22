@@ -855,6 +855,69 @@ body .error-page {
 
 /*
 ------------------------------
+08. SINGLE PAGE
+------------------------------
+*/
+body .content-container.single-page .content {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 10px; }
+  @media all and (min-width: 768px) {
+    body .content-container.single-page .content {
+      padding: 0 30px; } }
+  body .content-container.single-page .content img {
+    display: block;
+    width: 100%;
+    margin: 0 0 10px; }
+  body .content-container.single-page .content p {
+    max-width: 600px;
+    margin: 0 auto 25px;
+    text-align: left; }
+  body .content-container.single-page .content .single {
+    padding: 0; }
+    @media all and (min-width: 768px) {
+      body .content-container.single-page .content .single {
+        padding: 0 20px; } }
+    body .content-container.single-page .content .single img {
+      width: 100%;
+      display: block;
+      padding: 0 5px; }
+  body .content-container.single-page .content .tall {
+    padding: 0; }
+    @media all and (min-width: 768px) {
+      body .content-container.single-page .content .tall {
+        padding: 0 20px; } }
+    body .content-container.single-page .content .tall img {
+      width: 100%;
+      display: block;
+      padding: 0 5px; }
+      @media all and (min-width: 768px) {
+        body .content-container.single-page .content .tall img {
+          width: calc(50% - 10px);
+          margin: 0 auto 10px; } }
+  body .content-container.single-page .content .double {
+    padding: 0; }
+    @media all and (min-width: 768px) {
+      body .content-container.single-page .content .double {
+        padding: 0 20px; } }
+    body .content-container.single-page .content .double img {
+      width: calc(50%);
+      display: inline-block;
+      padding: 0 5px; }
+  body .content-container.single-page .content .triple {
+    padding: 0; }
+    @media all and (min-width: 768px) {
+      body .content-container.single-page .content .triple {
+        padding: 0 20px; } }
+    body .content-container.single-page .content .triple img {
+      width: calc(33.3333%);
+      display: inline-block;
+      padding: 0 5px; }
+
+/*
+------------------------------
 08.FOOTER
 ------------------------------
 */
