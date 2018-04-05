@@ -57,8 +57,10 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', '$anchorScroll'
         $scope.locations = [];
 
         angular.forEach($scope.posts, function(value){
-            $scope.locations.push(value.acf);
+            $scope.locations.push(value);
         });
+        
+        console.log($scope.locations);
         
         $scope.scrollTo = function(point){
             $location.hash(point);
@@ -249,34 +251,27 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', '$anchorScroll'
 
                 var marker = new google.maps.Marker({
                     map: $scope.map,
-                    position: new google.maps.LatLng(info.lat, info.long),
+                    position: new google.maps.LatLng(info.acf.lat, info.acf.long),
                     icon: iconLoad,
                     optimized: false,
-                    title: info.title,
-                    link: info.title.replace(/\s/g,''),
+                    title: info.title.rendered,
                     opacity: 0.85,
                 });
+                
+                var contentString = '<div class="info-window-content">' +
+                                    '<h6>' + info.title.rendered + '</h6>' +
+                                    '<img src="' + info.acf.thumbnail_image + '" />' +
+                                    '<a href="' + info.link + '">View Post <i class="fas fa-angle-right"></a></i>' +
+                                    '</div>'
+                
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                })
 
                 $scope.markers.push(marker);
                 
                 marker.addListener('click', function(){
-                    $scope.scrollTo(marker.link);
-                    document.getElementById(marker.link).style.border = '3px solid' + highlightColor;
-                    document.getElementById(marker.link).getElementsByClassName('location-hover')[0].style.display = 'table';
-
-
-                });
-
-               marker.addListener('mouseover',function(){
-
-                    marker.setIcon(iconHover);
-                    document.getElementById(marker.link).getElementsByClassName('location-hover')[0].style.display = 'table';
-
-                });
-                marker.addListener('mouseout',function(){
-
-                    marker.setIcon(iconLoad);
-
+                    infowindow.open(map, marker);
                 });
             };
 

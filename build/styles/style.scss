@@ -355,6 +355,39 @@ body{
         #map{
           width: 100%;
           height: 100%;
+          
+          .info-window-content {
+            padding: 10px 0 0;
+            
+            h6 {
+              text-transform: uppercase;
+              font-size: 24px;
+            }
+            
+            img {
+              display: block;
+              width: 175px;
+              margin: 10px 0;
+            }
+            
+            a {
+              color: $light;
+              font-weight: 700;
+              
+              i {
+                color: $light;
+                line-height: 2.5rem;
+              }
+              
+              &:hover {
+                color: $dark;
+                
+                i{
+                  color: $dark;
+                }
+              }
+            }
+          }
         }
       }
       .locations-grid {

@@ -489,6 +489,25 @@ body .home {
     body .home .map-section .map #map {
       width: 100%;
       height: 100%; }
+      body .home .map-section .map #map .info-window-content {
+        padding: 10px 0 0; }
+        body .home .map-section .map #map .info-window-content h6 {
+          text-transform: uppercase;
+          font-size: 24px; }
+        body .home .map-section .map #map .info-window-content img {
+          display: block;
+          width: 175px;
+          margin: 10px 0; }
+        body .home .map-section .map #map .info-window-content a {
+          color: #4b8287;
+          font-weight: 700; }
+          body .home .map-section .map #map .info-window-content a i {
+            color: #4b8287;
+            line-height: 2.5rem; }
+          body .home .map-section .map #map .info-window-content a:hover {
+            color: #0F3733; }
+            body .home .map-section .map #map .info-window-content a:hover i {
+              color: #0F3733; }
   body .home .map-section .locations-grid {
     box-sizing: border-box;
     overflow: hidden;
