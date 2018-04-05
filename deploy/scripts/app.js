@@ -60,7 +60,6 @@ app.controller('postsCtrl', ['$scope', 'postsData', '$interval', '$anchorScroll'
             $scope.locations.push(value);
         });
         
-        console.log($scope.locations);
         
         $scope.scrollTo = function(point){
             $location.hash(point);
