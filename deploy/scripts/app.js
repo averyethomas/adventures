@@ -299,6 +299,8 @@ app.controller('singlePostsCtrl', ['$scope', '$http','apiCall', '$anchorScroll',
         $http.get(apiCall + 'posts/' + postID).then(function(response){
             $scope.singlePost = response.data;
             
+            console.log($scope.singlePost);
+            
             $scope.singleLocations = [];
 
             angular.forEach($scope.singlePost.acf.locations, function(value){

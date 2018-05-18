@@ -151,8 +151,9 @@ h4 {
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   line-height: 24px;
-  font-weight: 500;
-  color: #4b8287; }
+  font-weight: 300;
+  color: #4b8287;
+  margin: 10px auto; }
 
 h5 {
   font-family: 'Open Sans', sans-serif;
@@ -371,6 +372,7 @@ body .nav {
       body .nav ul li img {
         width: 50px; }
       body .nav ul li a {
+        font-family: 'Oswald', sans-serif;
         font-size: 36px;
         color: white; }
         @media all and (min-width: 768px) {
@@ -673,7 +675,8 @@ body .single .map-button {
   body .single .map-button.mapClosed {
     right: 10px; }
   body .single .map-button:hover {
-    border: 3px solid #87b401; }
+    border: 3px solid #87b401;
+    cursor: pointer; }
   body .single .map-button svg {
     padding: 10px;
     width: 45px;

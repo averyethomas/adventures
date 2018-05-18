@@ -298,7 +298,7 @@ app.controller('singlePostsCtrl', ['$scope', '$http','apiCall', '$anchorScroll',
         
         $http.get(apiCall + 'posts/' + postID).then(function(response){
             $scope.singlePost = response.data;
-            
+                        
             $scope.singleLocations = [];
 
             angular.forEach($scope.singlePost.acf.locations, function(value){
@@ -332,7 +332,7 @@ app.controller('singlePostsCtrl', ['$scope', '$http','apiCall', '$anchorScroll',
                     scaledSize: new google.maps.Size(35,35),
                 }
                 var mapOptions = {
-                    zoom: 13,
+                    zoom: parseInt($scope.singlePost.acf.zoom_level),
                     center: new google.maps.LatLng($scope.singlePost.acf.lat, $scope.singlePost.acf.long),
                     mapTypeId: google.maps.MapTypeId.ROADMAP,
                     navigationControl: false,

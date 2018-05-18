@@ -194,6 +194,7 @@ body {
           width: 50px;
         }
         a{
+	      font-family: 'Oswald', sans-serif;
           font-size: 36px;
           color: white;
 
@@ -615,6 +616,7 @@ body{
         
         &:hover{
             border: 3px solid $highlight;
+            cursor: pointer;
         }
         
         svg{
